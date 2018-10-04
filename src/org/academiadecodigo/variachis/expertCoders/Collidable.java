@@ -1,4 +1,8 @@
 package org.academiadecodigo.variachis.expertCoders;
 
-public class Game {
+public interface Collidable extends Drawable{
+
+
+
+
 }

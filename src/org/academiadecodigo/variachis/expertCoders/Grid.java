@@ -1,4 +1,7 @@
 package org.academiadecodigo.variachis.expertCoders;
 
-public class Game {
+public class Grid implements Collidable {
+
+
+
 }

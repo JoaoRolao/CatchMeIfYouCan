@@ -1,4 +1,5 @@
 package org.academiadecodigo.variachis.expertCoders;
 
-public class Game {
+public class Player extends AbstractColidable {
+
 }

@@ -1,4 +1,4 @@
 package org.academiadecodigo.variachis.expertCoders;
 
-public class Game {
+public class Position {
 }
