@@ -1,4 +1,4 @@
 package org.academiadecodigo.variachis.expertCoders;
 
-public class Scene {
+public interface Drawable {
 }
