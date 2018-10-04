@@ -1,4 +1,4 @@
 package org.academiadecodigo.variachis.expertCoders;
 
-public interface movable {
+public class Game {
 }

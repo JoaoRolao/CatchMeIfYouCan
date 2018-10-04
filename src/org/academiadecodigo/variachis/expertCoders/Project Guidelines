@@ -1,0 +1,31 @@
+Interfaces - Drawable
+           - Movable
+           - Hittable
+
+
+
+Players - No different methods.
+        - 4 players (images) that change when hitted by a especific game object.
+
+
+
+GameObjects - Strategy DP (the way they interact with players(runtime), Factory DP (create objects)
+            - Enum (object types)
+
+
+
+Game - CANNOT DO ALL THE JOB!
+     - Game init (prepare field, scenario,)
+     - start tile?
+     - Game start (game logic - should be divided by classes)
+
+
+
+Scene? - need class? - have the size of the game. max high is going to be fall point to objects.
+                     - change when player stat reach certain level.
+
+
+
+
+
+
