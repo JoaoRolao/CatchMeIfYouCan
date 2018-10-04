@@ -22,9 +22,10 @@ public class Item extends AbstractCollidable {
 
     }
 
-
-
-
+    public static Type random() {
+        int randomType = (int) (Math.random() * Type.values().length);
+        return Type.values()[randomType];
+    }
 
 
 
