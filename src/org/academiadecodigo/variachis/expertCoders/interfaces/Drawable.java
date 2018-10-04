@@ -1,6 +1,6 @@
 package org.academiadecodigo.variachis.expertCoders.interfaces;
 
-public interface Drawable {
+public interface Drawable{
 
     void draw();
 

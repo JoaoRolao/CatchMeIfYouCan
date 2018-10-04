@@ -6,4 +6,16 @@ public class Grid implements Collidable {
 
 
 
+
+
+    @Override
+    public boolean checkColision() {
+        return false;
+    }
+
+
+    @Override
+    public void draw() {
+
+    }
 }
