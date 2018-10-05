@@ -9,15 +9,13 @@ import org.academiadecodigo.variachis.expertCoders.player.Player;
 
 public class Game {
     private Item item;
-    private LinkedList<Item> liknedList;
+    private LinkedList<Item> liknedList = new LinkedList<>();
     private Player player;
     private Grid grid;
     private ItemFactory itemFactory = new ItemFactory();
 
 
-    public void setLiknedList(LinkedList<Item> liknedList) {
-        this.liknedList = new LinkedList<>();
-    }
+
 
     public void addItemsToList() {
         int items = 0;
@@ -29,7 +27,14 @@ public class Game {
 
     public void gameInit() {
         this.grid = new Grid(200, 200);
-        this.player = new Player(this.grid);
+        this.player = new Player();
+
+        addItemsToList();
+        for (Item item: liknedList) {
+           item.draw();
+
+        }
+
 
     }
 
