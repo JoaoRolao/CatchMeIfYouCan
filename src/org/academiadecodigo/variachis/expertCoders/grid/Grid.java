@@ -33,7 +33,6 @@ public class Grid implements Collidable { //implements the -->Collidable interfa
 
 
     public void draw() {
-
     }
 
 
