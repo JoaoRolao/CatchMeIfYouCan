@@ -26,6 +26,7 @@ public class Grid implements Collidable { //implements the -->Collidable interfa
         return rows;
     }
 
+<<<<<<< HEAD
     //*************inherited interface methods ---TO WORK--- *********************
     @Override
     public boolean checkColision() {
@@ -33,6 +34,23 @@ public class Grid implements Collidable { //implements the -->Collidable interfa
     }
 
     @Override
+=======
+
+    //GETTER FOR THE POSITION CLASS TO USE --->HEIGHT(ALTURA) ---> POSITION KNOWS THE HEIGHT AND WIDTH TO HAVE A POSITION (????)
+    public int getHeight() {
+        return height;
+    }
+
+    //GETTER FOR THE POSITION CLASS TO USE --->WIDTH(LARGURA) ---> POSITION KNOWS THE WIDTH AND HEIGHT TO HAVE A POSITION (????)
+    public int getWidth() {
+        return width;
+    }
+
+    //*************inherited interface methods ---TO WORK--- *********************
+
+
+
+>>>>>>> 1592f096a481704fd2201fde367fb67a6939aac6
     public void draw() {
     }
 }
