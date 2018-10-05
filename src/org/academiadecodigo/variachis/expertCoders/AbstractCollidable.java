@@ -10,7 +10,6 @@ public class AbstractCollidable implements Collidable {
 
     private Position position;
     private Grid grid;
-    
 
 
     public boolean checkColision() {
@@ -22,4 +21,8 @@ public class AbstractCollidable implements Collidable {
 
     }
 
+    @Override
+    public boolean checkCollision() {
+        return false;
+    }
 }

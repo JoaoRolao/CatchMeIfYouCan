@@ -2,19 +2,40 @@ package org.academiadecodigo.variachis.expertCoders.grid.position;
 
 import org.academiadecodigo.variachis.expertCoders.grid.Grid;
 
-public class Position {
+import org.academiadecodigo.variachis.expertCoders.interfaces.Collidable;
+
+public class Position implements Collidable {
 
     private int row;
     private int col;
     private Grid grid;
 
 
+    //INHERITED METHODS FROM INTERFACE
 
 
-    public void moveDown(){
+    @Override
+    public boolean checkCollision() {
+        return false;
+    }
+
+    @Override
+    public void draw() {
+
+    }
+
+
+    public void moveDown() {
         this.row = row++;
     }
 
+    public void moveLeft() {
+        this.col = col--;
+    }
+
+    public void moveRight() {
+        this.col = col++;
+    }
 
 
 }
