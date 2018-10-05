@@ -8,9 +8,12 @@ public class Item extends AbstractCollidable {
 
     private Grid grid;
     private Position position;
+    private Type type;
 
 
-
+public Item (Type type){
+    this.type = type;
+}
     //Enum type inner class
 
     public enum Type {
@@ -25,6 +28,11 @@ public class Item extends AbstractCollidable {
     public static Type random() {
         int randomType = (int) (Math.random() * Type.values().length);
         return Type.values()[randomType];
+
+    }
+
+    public void move(){
+     position.moveDown();
     }
 
 
