@@ -6,4 +6,5 @@ public interface Collidable extends Drawable {
     void draw();
 
 
+
 }
