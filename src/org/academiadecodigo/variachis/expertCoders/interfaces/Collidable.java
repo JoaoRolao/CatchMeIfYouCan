@@ -5,4 +5,5 @@ public interface Collidable extends Drawable {
     @Override
     void draw();
 
+
 }
