@@ -38,7 +38,10 @@ public class Grid implements Collidable { //implements the -->Collidable interfa
         return new Position(cols, rows, this);
 
     }
+
     */
+
+
     //*************inherited interface methods ---TO WORK--- *********************
     @Override
 
@@ -51,5 +54,4 @@ public class Grid implements Collidable { //implements the -->Collidable interfa
     public boolean checkCollision() {
         return false;
     }
-
 }
