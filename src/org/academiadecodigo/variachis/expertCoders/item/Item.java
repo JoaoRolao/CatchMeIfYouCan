@@ -35,8 +35,9 @@ public Item (Type type){
      position.moveDown();
     }
 
-
-
-
+    @Override
+    public boolean checkColision() {
+        return super.checkColision();
+    }
 
 }
