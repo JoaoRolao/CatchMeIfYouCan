@@ -9,18 +9,17 @@ import org.academiadecodigo.variachis.expertCoders.player.Player;
 
 public class Game {
     private Item item;
-    private LinkedList<Item> liknedList = new LinkedList<>();
+    private LinkedList<Item> allItems = new LinkedList<>();
+    private LinkedList<Item> activeItems = new LinkedList<>();
     private Player player;
     private Grid grid;
     private ItemFactory itemFactory = new ItemFactory();
 
 
-
-
     public void addItemsToList() {
         int items = 0;
         while (items != 20) {
-            liknedList.add(itemFactory.getItem());
+            allItems.add(itemFactory.getItem());
             items++;
         }
     }
@@ -30,13 +29,24 @@ public class Game {
         this.player = new Player();
 
         addItemsToList();
-        for (Item item: liknedList) {
-           item.draw();
+        for (Item item : allItems) {
+            item.draw();
+        }
+
+        //recycle items
+        for (int i = 0; i < 6; i++) {
+            activeItems.add(allItems.remove(i));
+        }
+        for (int i = 0; i <6 ; i++) {
+            allItems.add(activeItems.remove(i));
 
         }
 
-
     }
+
+
+
+
 
 
 }
