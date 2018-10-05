@@ -11,9 +11,9 @@ public class Item extends AbstractCollidable {
     private Type type;
 
 
-public Item (Type type){
-    this.type = type;
-}
+    public Item(Type type) {
+        this.type = type;
+    }
     //Enum type inner class
 
     public enum Type {
@@ -31,8 +31,8 @@ public Item (Type type){
 
     }
 
-    public void move(){
-     position.moveDown();
+    public void move() {
+        position.moveDown();
     }
 
     @Override
@@ -40,4 +40,8 @@ public Item (Type type){
         return super.checkColision();
     }
 
+    @Override
+    public void draw() {
+        System.out.println("I'm a fucking item");
+    }
 }
