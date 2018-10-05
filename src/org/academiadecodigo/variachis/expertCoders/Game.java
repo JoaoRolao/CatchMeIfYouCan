@@ -3,6 +3,8 @@ package org.academiadecodigo.variachis.expertCoders;
 import java.util.LinkedList;
 
 import org.academiadecodigo.variachis.expertCoders.grid.Grid;
+import org.academiadecodigo.variachis.expertCoders.grid.position.Position;
+import org.academiadecodigo.variachis.expertCoders.grid.position.PositionFactory;
 import org.academiadecodigo.variachis.expertCoders.item.Item;
 import org.academiadecodigo.variachis.expertCoders.item.ItemFactory;
 import org.academiadecodigo.variachis.expertCoders.player.Player;
@@ -26,7 +28,7 @@ public class Game {
 
     public void gameInit() {
         this.grid = new Grid(200, 200);
-        this.player = new Player();
+        //this.player = new Player(Position);
 
         addItemsToList();
         for (Item item : allItems) {
@@ -41,6 +43,9 @@ public class Game {
             allItems.add(activeItems.remove(i));
 
         }
+
+
+        PositionFactory.getPosition(0, 0, grid);
 
     }
 

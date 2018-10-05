@@ -1,14 +1,19 @@
 package org.academiadecodigo.variachis.expertCoders.grid.position;
 
+import org.academiadecodigo.variachis.expertCoders.grid.Grid;
+
 /**
  * A factory to create different positions for different items.
  */
 
 public class PositionFactory {
 
-    public static Position getNewPosition (Grid grid) {
+    //method to instantiate the positions
+    public static Position getPosition(int column, int row, Grid grid) {
 
+        return new Position(column, row, grid);
 
     }
+
 
 }

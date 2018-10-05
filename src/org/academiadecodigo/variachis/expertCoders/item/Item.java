@@ -21,7 +21,10 @@ public class Item extends AbstractCollidable {
         PEN,
         MAC,
         POLY,
-        COCK;
+        COCK
+
+
+        //cherries - > if you catch the cherrie you leave the game to the bathroom farting all over the map
 
     }
 
@@ -36,12 +39,17 @@ public class Item extends AbstractCollidable {
     }
 
     @Override
-    public boolean checkColision() {
-        return super.checkColision();
+    public boolean checkCollision() {
+        return super.checkCollision();
     }
 
     @Override
     public void draw() {
         System.out.println("I'm a fucking item");
+
+    }
+
+    public void setPosition(Position position) {
+        this.position = position;
     }
 }

@@ -31,15 +31,12 @@ public class Grid implements Collidable { //implements the -->Collidable interfa
         return rows;
     }
 
-    /*
     //method to make a grid position  ----need position-----
     public Position makePosition(int cols, int rows){
 
         return new Position(cols, rows, this);
 
     }
-
-    */
 
 
     //*************inherited interface methods ---TO WORK--- *********************
@@ -49,9 +46,9 @@ public class Grid implements Collidable { //implements the -->Collidable interfa
         System.out.println("im a grid (draw method");
     }
 
-
     @Override
     public boolean checkCollision() {
+        System.out.println("im a grid (col method");
         return false;
     }
 }
