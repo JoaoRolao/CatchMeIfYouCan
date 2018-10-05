@@ -17,7 +17,7 @@ public class Item extends AbstractCollidable {
     //Enum type inner class
 
     public enum Type {
-        CAPS,
+        CAP,
         PEN,
         MAC,
         POLY,
