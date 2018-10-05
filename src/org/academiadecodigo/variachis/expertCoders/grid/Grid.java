@@ -1,5 +1,6 @@
 package org.academiadecodigo.variachis.expertCoders.grid;
 
+import org.academiadecodigo.variachis.expertCoders.grid.position.Position;
 import org.academiadecodigo.variachis.expertCoders.interfaces.Collidable;
 import org.academiadecodigo.variachis.expertCoders.item.Item;
 import org.academiadecodigo.variachis.expertCoders.player.Player;
@@ -30,26 +31,25 @@ public class Grid implements Collidable { //implements the -->Collidable interfa
         return rows;
     }
 
+    /*
+    //method to make a grid position  ----need position-----
+    public Position makePosition(int cols, int rows){
 
+        return new Position(cols, rows, this);
+
+    }
+    */
 
 
     //*************inherited interface methods ---TO WORK--- *********************
+    @Override
+    public void draw() {
+        System.out.println("im a grid (draw method");
+    }
+
 
     @Override
     public boolean checkCollision() {
         return false;
     }
-
-    @Override
-    public void draw() {
-    }
-
-
-    @Override
-    public boolean checkColision() {
-        return false;
-    }
-
-
-
 }
