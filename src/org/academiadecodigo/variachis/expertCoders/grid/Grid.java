@@ -39,13 +39,9 @@ public class Grid implements Collidable { //implements the -->Collidable interfa
 
     }
     */
-
-<<<<<<< HEAD
-
     //*************inherited interface methods ---TO WORK--- *********************
     @Override
-=======
->>>>>>> dd5f7ceda39a1e623e667a25e0a8e2ad94e109ce
+
     public void draw() {
         System.out.println("im a grid (draw method");
     }
@@ -55,9 +51,5 @@ public class Grid implements Collidable { //implements the -->Collidable interfa
     public boolean checkCollision() {
         return false;
     }
-<<<<<<< HEAD
-=======
 
-
->>>>>>> dd5f7ceda39a1e623e667a25e0a8e2ad94e109ce
 }
