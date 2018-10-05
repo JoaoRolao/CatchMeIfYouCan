@@ -32,8 +32,8 @@ public class Player extends AbstractCollidable {
 
 
     @Override
-    public boolean checkColision() {
-        return super.checkColision();
+    public boolean checkCollision() {
+        return super.checkCollision();
     }
 
 

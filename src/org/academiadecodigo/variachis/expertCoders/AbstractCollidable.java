@@ -12,10 +12,6 @@ public class AbstractCollidable implements Collidable {
     private Grid grid;
 
 
-    public boolean checkColision() {
-        return false;
-    }
-
     @Override
     public void draw() {
 
