@@ -9,15 +9,13 @@ import org.academiadecodigo.variachis.expertCoders.item.Item;
 public class Player extends AbstractCollidable {
 
 
-    private Grid grid;
     private Position position;
-    private Item item; // player must know items
     private int knowledge = 0;
     private int fun = 0;
 
 
-    public Player(Grid grid) {
-        this.grid = grid;
+    public Player(Position position) {
+        this.position = position;
     }
 
 
