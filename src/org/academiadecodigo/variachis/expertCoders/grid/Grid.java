@@ -31,7 +31,6 @@ public class Grid implements Collidable { //implements the -->Collidable interfa
     //*************inherited interface methods ---TO WORK--- *********************
 
 
-
     public void draw() {
     }
 
@@ -40,7 +39,6 @@ public class Grid implements Collidable { //implements the -->Collidable interfa
     public boolean checkColision() {
         return false;
     }
-
 
 
 }
