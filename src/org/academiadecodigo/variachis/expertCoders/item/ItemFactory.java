@@ -4,8 +4,10 @@ public class ItemFactory {
 
     private Item item;
 
-    public Item getItem(){
+    //Create new items -- random values
+    public Item getItem() {
         return new Item(Item.random());
     }
+
 
 }
