@@ -42,6 +42,14 @@ public class Grid implements Collidable { //implements the -->Collidable interfa
 
     @Override
     public void draw() {
-
     }
+
+
+    @Override
+    public boolean checkColision() {
+        return false;
+    }
+
+
+
 }

@@ -7,5 +7,5 @@ public interface Collidable extends Drawable {
 
     boolean checkCollision();
 
-
+public boolean checkColision();
 }
