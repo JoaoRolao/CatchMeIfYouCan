@@ -1,9 +1,7 @@
 package org.academiadecodigo.variachis.expertCoders.player;
 
 import org.academiadecodigo.variachis.expertCoders.AbstractCollidable;
-import org.academiadecodigo.variachis.expertCoders.grid.Grid;
 import org.academiadecodigo.variachis.expertCoders.grid.position.Position;
-import org.academiadecodigo.variachis.expertCoders.item.Item;
 
 
 public class Player extends AbstractCollidable {
@@ -21,11 +19,13 @@ public class Player extends AbstractCollidable {
 
     public void moveLeft() {
         position.moveLeft();
+        System.out.println("I'm moving to the left");
     }
 
 
     public void moveRight() {
         position.moveRight();
+        System.out.println("I'm moving to the right");
     }
 
 
@@ -37,8 +37,7 @@ public class Player extends AbstractCollidable {
 
     @Override
     public void draw() {
-        System.out.println("I'm the Player");
-        // draw must apply an image
+        System.out.println("I'm the Player");   // draw must apply an image
     }
 
 
@@ -51,5 +50,7 @@ public class Player extends AbstractCollidable {
     public void setFun(int fun) {
         this.fun = fun;
     }
+
+
 
 }
