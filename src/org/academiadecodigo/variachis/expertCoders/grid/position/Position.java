@@ -15,6 +15,15 @@ public class Position {
         this.row = row++;
     }
 
+    public void moveLeft(){
+        this.col = col--;
+    }
+
+    public void moveRight(){
+        this.col = col++;
+    }
+
+
 
 
 }
