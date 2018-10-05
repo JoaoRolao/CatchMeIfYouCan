@@ -9,13 +9,22 @@ public class Position implements Collidable {
     private int row;
     private int col;
     private Grid grid;
+    private boolean collided;
+
+
+    public Position(int col, int row, Grid grid) {
+
+        this.col = col;
+        this.row = row;
+        this.grid = grid;
+    }
 
 
     //INHERITED METHODS FROM INTERFACE
 
-
     @Override
     public boolean checkCollision() {
+
         return false;
     }
 
@@ -24,20 +33,23 @@ public class Position implements Collidable {
 
     }
 
+    public void moveRight() {
 
-    public void moveDown() {
-        this.row = row++;
+        col++;
     }
 
     public void moveLeft() {
-        this.col = col--;
+
+        col--;
     }
 
-    public void moveRight() {
-        this.col = col++;
+    public void moveDown() {
+
+        row++;
     }
 
+    public void moveUp() {
 
+        row--;
+    }
 }
-
-
