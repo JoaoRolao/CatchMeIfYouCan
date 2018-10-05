@@ -41,9 +41,6 @@ public class Player extends AbstractCollidable {
         // draw must apply an image
     }
 
-    public Player(){
-
-    }
 
 
     public void setKnowledge(int knowledge) {
