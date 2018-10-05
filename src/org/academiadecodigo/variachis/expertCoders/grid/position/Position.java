@@ -14,9 +14,24 @@ public class Position {
         this.grid = grid;
     }
 
-    public void move() {
+    public void moveRight() {
 
+        col++;
+    }
 
+    public void moveLeft() {
+
+        col--;
+    }
+
+    public void moveDown() {
+
+        row++;
+    }
+
+    public void moveUp() {
+
+        row--;
     }
 
     public void draw() {
@@ -24,8 +39,8 @@ public class Position {
 
     }
 
-    public void checkCollision() {
+    public boolean checkCollision() {
 
-
+        return collided;
     }
 }
