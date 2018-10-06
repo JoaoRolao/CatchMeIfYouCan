@@ -33,6 +33,7 @@ public class Game {
         this.player = new Player(PositionFactory.getPosition(grid.getCols() / 2, grid.getRows(), grid));
 
         addItemsToList();
+
         for (AbstractCollidable item : allItems) {
 
         }
@@ -40,12 +41,21 @@ public class Game {
         activeItems.add(player);
         positionFactory.setGrid(grid);
 
+
+
+
+
         //give a position to every item TODO can't access item index
         for (int i = 0; i < allItems.size(); i++) {
+            System.out.println("entered working for: " + allItems.get(i));
             item.setPosition(PositionFactory.getPosition(positionFactory.getRandomCol(), 0, grid));
         }
 
 
+
+
+
+        /*
         //recycle items
         for (int i = 0; i < 6; i++) {
             activeItems.add(allItems.remove(i));
@@ -60,7 +70,7 @@ public class Game {
         addItemsToList();
         for (AbstractCollidable item : activeItems) {
             item.draw();
-        }
+        }*/
 
     }
 
