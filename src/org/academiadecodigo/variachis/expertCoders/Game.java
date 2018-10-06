@@ -30,7 +30,7 @@ public class Game {
 
 
     public void gameInit() {
-        this.grid = new Grid(200, 200);
+        this.grid = new Grid(60, 80);
         this.player = new Player(PositionFactory.getPosition(grid.getCols() / 2, grid.getRows(), grid));
 
 

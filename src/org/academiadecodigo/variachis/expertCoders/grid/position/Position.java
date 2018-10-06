@@ -27,6 +27,7 @@ public class Position implements Collidable {
 
     public void setRowZero() {
         this.row = 0;
+
     }
 
     public void setCol() {
