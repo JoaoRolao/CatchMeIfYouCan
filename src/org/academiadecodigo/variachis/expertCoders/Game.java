@@ -32,7 +32,10 @@ public class Game {
         this.grid = new Grid(200, 200);
         this.player = new Player(PositionFactory.getPosition(grid.getCols() / 2, grid.getRows(), grid));
 
+
+        //adding items to the list and giving them a position
         addItemsToList();
+<<<<<<< HEAD
 
         for (AbstractCollidable item : allItems) {
 
@@ -49,12 +52,23 @@ public class Game {
         for (int i = 0; i < allItems.size(); i++) {
             System.out.println("entered working for: " + allItems.get(i));
             item.setPosition(PositionFactory.getPosition(positionFactory.getRandomCol(), 0, grid));
+=======
+        for (Item item : allItems) {
+            item.setPosition(PositionFactory.getItemPosition(grid));
+            item.draw();
+
+>>>>>>> master
         }
+        player.draw();
+        grid.draw();
+
+<<<<<<< HEAD
 
 
 
 
-
+=======
+>>>>>>> master
         /*
         //recycle items
         for (int i = 0; i < 6; i++) {
@@ -67,18 +81,25 @@ public class Game {
         }
 
 
+<<<<<<< HEAD
         addItemsToList();
         for (AbstractCollidable item : activeItems) {
             item.draw();
         }*/
+=======
+*/
+>>>>>>> master
 
     }
 
 
+<<<<<<< HEAD
     //All game logic
     public void gameStart() {
 
     }
 
 
+=======
+>>>>>>> master
 }
