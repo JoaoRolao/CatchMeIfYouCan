@@ -29,12 +29,13 @@ public class Player extends AbstractCollidable {
     }
 
     @Override
-    public boolean checkCollision() {
-        return super.checkCollision();
+    public boolean checkCollision(Position position) {
+        return this.position.checkCollision(position);
     }
 
     @Override
     public void draw() {
+        position.draw();
         System.out.println("I'm the Player");   // draw must apply an image
     }
 
@@ -47,5 +48,7 @@ public class Player extends AbstractCollidable {
     }
 
 
-
+    public Position getPosition() {
+        return position;
+    }
 }

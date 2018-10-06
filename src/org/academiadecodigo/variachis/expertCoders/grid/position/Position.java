@@ -24,16 +24,34 @@ public class Position implements Collidable {
 
     //INHERITED METHODS FROM INTERFACE
 
-    @Override
-    public boolean checkCollision(Position one, Position two) {
 
-        return one.equals(two);
+    public void setRowZero() {
+        this.row = 0;
+    }
 
+    public void setCol() {
+        this.col = (int) (Math.random() * grid.getCols());
+    }
+
+    public boolean isCollided() {
+        return collided;
+    }
+
+    public void setCollided(boolean collided) {
+        System.out.println("seted pos colided");
+        this.collided = collided;
     }
 
 
     @Override
+    public boolean checkCollision(Position position) {
+
+        return this.equals(position);
+    }
+
+    @Override
     public void draw() {
+        System.out.println("col: " + col + " row: " + row);
 
     }
 
@@ -50,5 +68,18 @@ public class Position implements Collidable {
     public void moveDown() {
 
         row++;
+    }
+
+    public boolean equals(Position position) {
+
+        if (this.row != position.row || this.col != position.col) {
+            return false;
+        }
+
+        return true;
+    }
+
+    public int getRow() {
+        return row;
     }
 }

@@ -18,7 +18,7 @@ public class AbstractCollidable implements Collidable {
     }
 
     @Override
-    public boolean checkCollision() {
+    public boolean checkCollision(Position position) {
         return false;
     }
 }

@@ -9,6 +9,8 @@ public class Item extends AbstractCollidable {
     private Grid grid;
     private Position position;
     private Type type;
+    private boolean colided;
+
 
 
     public Item(Type type) {
@@ -28,22 +30,33 @@ public class Item extends AbstractCollidable {
 
     }
 
+    public void setColided(boolean colided) {
+        this.colided = colided;
+    }
+
+    public boolean isColided() {
+        return colided;
+    }
+
+
     public static Type random() {
         int randomType = (int) (Math.random() * Type.values().length);
         return Type.values()[randomType];
     }
 
     public void move() {
-        position.moveDown();
+        System.out.println("movin item");
+        this.position.moveDown();
     }
 
     @Override
-    public boolean checkCollision() {
-        return super.checkCollision();
+    public boolean checkCollision(Position position) {
+        return this.position.checkCollision(position);
     }
 
     @Override
     public void draw() {
+        position.draw();
         System.out.println("I'm a fucking item");
 
     }
@@ -52,4 +65,7 @@ public class Item extends AbstractCollidable {
         this.position = position;
     }
 
+    public Position getPosition() {
+        return position;
+    }
 }

@@ -16,6 +16,8 @@ public class Game {
     private Player player;
     private Grid grid;
     private ItemFactory itemFactory = new ItemFactory();
+    private PositionFactory positionFactory = new PositionFactory();
+    private boolean gameOver;
 
 
     public void addItemsToList() {
@@ -26,6 +28,7 @@ public class Game {
         }
     }
 
+
     public void gameInit() {
         this.grid = new Grid(200, 200);
         this.player = new Player(PositionFactory.getPosition(grid.getCols() / 2, grid.getRows(), grid));
@@ -33,42 +36,89 @@ public class Game {
 
         //adding items to the list and giving them a position
         addItemsToList();
-
-        for (int i = 0 ; i < 6 ; i ++){
+        for (int i = 0; i < 6; i++) {
             activeItems.add(allItems.remove(i));
         }
 
         for (Item item : activeItems) {
             item.setPosition(PositionFactory.getItemPosition(grid));
-            item.draw();
+        }
+
+        for (Item item : allItems) {
+            item.setPosition(PositionFactory.getItemPosition(grid));
         }
 
 
         player.draw();
         grid.draw();
-
-        /*
-        //recycle items
-        for (int i = 0; i < 6; i++) {
-            activeItems.add(allItems.remove(i));
-        }
-
-        for (int i = 0; i < 6; i++) {
-            allItems.add(activeItems.remove(i));
-
-        }
-
-
-        addItemsToList();
-        for (AbstractCollidable item : activeItems) {
-            item.draw();
-        }*/
-
     }
 
 
-    //All game logic
+    public Item itemRecycle(Item item) {
+        item.setColided(false);
+        item.getPosition().setRowZero();
+        item.getPosition().setCol();
+        allItems.add(item);
+        Item itemNew = allItems.poll();
+        return itemNew;
+    }
+
+
     public void gameStart() {
 
+        for (Item item : activeItems) {
+
+        }
+
+        while (!gameOver) {
+            //TODO: IF PLAYER PRESS KEY PLAYER.MOVE()
+
+
+            for (Item item : activeItems) {
+
+                item.move();
+                item.draw();
+            }
+
+            for (Item item : activeItems) {
+
+                if (player.checkCollision(item.getPosition())) {
+                    System.out.println("COLIDEDDDDD with player");
+                    item.setColided(true);
+                    gameOver = true;
+                    //TODO: PLAYER INTERACTION WITH ITEM TYPE
+                }
+
+                if (grid.checkCollision(item.getPosition())) {
+                    System.out.println("colided with grid");
+                    item.setColided(true);
+                    //gameOver = true;
+                }
+            }
+
+            for (Item item : activeItems) {
+                if (item.isColided()) {
+                    itemRecycle(item);
+                }
+            }
+
+        }
+
     }
+
+/*
+    //recycle items
+    for (int i = 0; i < 6; i++) {
+        activeItems.add(allItems.remove(i));
+    }
+
+    for (int i = 0; i < 6; i++) {
+        allItems.add(activeItems.remove(i));
+    }
+*/
+
+
 }
+
+
+

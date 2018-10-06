@@ -18,8 +18,29 @@ public class PositionFactory {
     }
 
     public static Position getItemPosition(Grid grid){
-        int randomCol = (int)Math.random()* grid.getCols();
+        int randomCol = (int)(Math.random()* grid.getCols());
         return new Position(randomCol,0,grid);
     }
+
+
+
+    public void setGrid(Grid grid) {
+        this.grid = grid;
+    }
+
+
+    public int getRandomCol() {
+        int cols = this.grid.getCols();
+        return (int) (Math.random() * cols);
+
+    }
+
+    public int getRandomRow(){
+        int rows = this.grid.getRows();
+        return (int) (Math.random() * rows);
+    }
+
+
+
 
 }

@@ -46,7 +46,10 @@ public class Grid implements Collidable { //implements the -->Collidable interfa
     }
 
     @Override
-    public boolean checkCollision() {
+    public boolean checkCollision(Position position) {
+        if ((position.getRow() == rows)){
+            return true;
+        }
         return false;
     }
 }
