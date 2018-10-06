@@ -31,7 +31,7 @@ public class Grid implements Collidable { //implements the -->Collidable interfa
         return rows;
     }
 
-    //method to make a grid position  ----need position-----
+    //method to make a grid position
     public Position makePosition(int cols, int rows){
 
         return new Position(cols, rows, this);
@@ -41,7 +41,6 @@ public class Grid implements Collidable { //implements the -->Collidable interfa
 
     //*************inherited interface methods ---TO WORK--- *********************
     @Override
-
     public void draw() {
         System.out.println("im a grid (draw method");
     }

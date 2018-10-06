@@ -28,24 +28,19 @@ public class Player extends AbstractCollidable {
         System.out.println("I'm moving to the right");
     }
 
-
     @Override
     public boolean checkCollision() {
         return super.checkCollision();
     }
-
 
     @Override
     public void draw() {
         System.out.println("I'm the Player");   // draw must apply an image
     }
 
-
-
     public void setKnowledge(int knowledge) {
         this.knowledge = knowledge;
     }
-
 
     public void setFun(int fun) {
         this.fun = fun;
