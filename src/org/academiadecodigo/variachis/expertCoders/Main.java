@@ -9,12 +9,12 @@ public class Main {
 
         Game game = new Game();
 
-<<<<<<< HEAD
+
 
         game.gameInit();
-=======
-        game.gameInit();
 
->>>>>>> master
+
+
+
     }
 }

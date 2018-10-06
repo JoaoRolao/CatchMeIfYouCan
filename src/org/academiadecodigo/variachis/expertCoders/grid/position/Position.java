@@ -20,13 +20,17 @@ public class Position implements Collidable {
     }
 
 
+    //
+
     //INHERITED METHODS FROM INTERFACE
 
     @Override
-    public boolean checkCollision() {
+    public boolean checkCollision(Position one, Position two) {
 
-        return false;
+        return one.equals(two);
+
     }
+
 
     @Override
     public void draw() {
@@ -46,10 +50,5 @@ public class Position implements Collidable {
     public void moveDown() {
 
         row++;
-    }
-
-    public void moveUp() {
-
-        row--;
     }
 }

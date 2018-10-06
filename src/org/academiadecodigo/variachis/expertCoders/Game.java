@@ -11,12 +11,11 @@ import org.academiadecodigo.variachis.expertCoders.player.Player;
 
 public class Game {
     private Item item;
-    private LinkedList<AbstractCollidable> allItems = new LinkedList<>();
-    private LinkedList<AbstractCollidable> activeItems = new LinkedList<>();
+    private LinkedList<Item> allItems = new LinkedList<>();
+    private LinkedList<Item> activeItems = new LinkedList<>();
     private Player player;
     private Grid grid;
     private ItemFactory itemFactory = new ItemFactory();
-    private PositionFactory positionFactory = new PositionFactory();
 
 
     public void addItemsToList() {
@@ -27,7 +26,6 @@ public class Game {
         }
     }
 
-
     public void gameInit() {
         this.grid = new Grid(200, 200);
         this.player = new Player(PositionFactory.getPosition(grid.getCols() / 2, grid.getRows(), grid));
@@ -35,40 +33,20 @@ public class Game {
 
         //adding items to the list and giving them a position
         addItemsToList();
-<<<<<<< HEAD
 
-        for (AbstractCollidable item : allItems) {
-
+        for (int i = 0 ; i < 6 ; i ++){
+            activeItems.add(allItems.remove(i));
         }
 
-        activeItems.add(player);
-        positionFactory.setGrid(grid);
-
-
-
-
-
-        //give a position to every item TODO can't access item index
-        for (int i = 0; i < allItems.size(); i++) {
-            System.out.println("entered working for: " + allItems.get(i));
-            item.setPosition(PositionFactory.getPosition(positionFactory.getRandomCol(), 0, grid));
-=======
-        for (Item item : allItems) {
+        for (Item item : activeItems) {
             item.setPosition(PositionFactory.getItemPosition(grid));
             item.draw();
-
->>>>>>> master
         }
+
+
         player.draw();
         grid.draw();
 
-<<<<<<< HEAD
-
-
-
-
-=======
->>>>>>> master
         /*
         //recycle items
         for (int i = 0; i < 6; i++) {
@@ -81,25 +59,16 @@ public class Game {
         }
 
 
-<<<<<<< HEAD
         addItemsToList();
         for (AbstractCollidable item : activeItems) {
             item.draw();
         }*/
-=======
-*/
->>>>>>> master
 
     }
 
 
-<<<<<<< HEAD
     //All game logic
     public void gameStart() {
 
     }
-
-
-=======
->>>>>>> master
 }

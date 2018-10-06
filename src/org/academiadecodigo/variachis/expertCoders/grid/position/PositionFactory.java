@@ -22,25 +22,4 @@ public class PositionFactory {
         return new Position(randomCol,0,grid);
     }
 
-
-
-    public void setGrid(Grid grid) {
-        this.grid = grid;
-    }
-
-
-    public int getRandomCol() {
-        int cols = this.grid.getCols();
-        return (int) (Math.random() * cols);
-
-    }
-
-    public int getRandomRow(){
-        int rows = this.grid.getRows();
-        return (int) (Math.random() * rows);
-    }
-
-
-
-
 }
