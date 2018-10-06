@@ -68,4 +68,10 @@ public class Item extends AbstractCollidable {
     public Position getPosition() {
         return position;
     }
+
+    public Type getType() {
+        return type;
+    }
+
+
 }
