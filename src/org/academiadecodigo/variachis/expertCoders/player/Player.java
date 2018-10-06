@@ -35,6 +35,7 @@ public class Player extends AbstractCollidable {
 
     @Override
     public void draw() {
+        position.draw();
         System.out.println("I'm the Player");   // draw must apply an image
     }
 
@@ -45,6 +46,8 @@ public class Player extends AbstractCollidable {
     public void setFun(int fun) {
         this.fun = fun;
     }
+
+
 
 
 

@@ -44,6 +44,7 @@ public class Item extends AbstractCollidable {
 
     @Override
     public void draw() {
+        position.draw();
         System.out.println("I'm a fucking item");
 
     }

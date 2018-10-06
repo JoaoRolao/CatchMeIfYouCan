@@ -30,6 +30,7 @@ public class Position implements Collidable {
 
     @Override
     public void draw() {
+        System.out.println("col: " + col + " row: " + row);
 
     }
 
