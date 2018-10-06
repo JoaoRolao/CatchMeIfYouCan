@@ -22,7 +22,7 @@ public class Game {
 
     public void addItemsToList() {
         int items = 0;
-        while (items != 20) {
+        while (items != 50) {
             allItems.add(itemFactory.getItem());
             items++;
         }
@@ -36,7 +36,7 @@ public class Game {
 
         //adding items to the list and giving them a position
         addItemsToList();
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 10; i++) {
             activeItems.add(allItems.remove(i));
         }
 
@@ -85,8 +85,25 @@ public class Game {
                 if (player.checkCollision(item.getPosition())) {
                     System.out.println("COLIDEDDDDD with player");
                     item.setColided(true);
-                    gameOver = true;
-                    //TODO: PLAYER INTERACTION WITH ITEM TYPE
+                    switch (item.getType()){
+                        case CAP:
+                            player.setKnowledge(player.getKnowledge() -2);
+                            break;
+                        case MAC:
+                            player.setKnowledge(player.getKnowledge() + 2);
+                            break;
+                        case PEN:
+                            player.setFun(player.getFun() - 2);
+                            break;
+                        case COCK:
+                            player.setFun(player.getFun() + 2);
+                            break;
+                        case POLY:
+                            //TODO change image
+                            System.out.println("fun: " + player.getFun() + " knowlege: " + player.getKnowledge());
+                            gameOver = true;
+
+                    }
                 }
 
                 if (grid.checkCollision(item.getPosition())) {
@@ -100,6 +117,10 @@ public class Game {
                 if (item.isColided()) {
                     itemRecycle(item);
                 }
+            }
+
+            if(player.getFun() <= 0 || player.getKnowledge() <=0){
+                gameOver = true;
             }
 
         }

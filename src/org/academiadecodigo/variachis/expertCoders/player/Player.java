@@ -8,8 +8,8 @@ public class Player extends AbstractCollidable {
 
 
     private Position position;
-    private int knowledge = 0;
-    private int fun = 0;
+    private int knowledge = 50;
+    private int fun = 50;
 
 
     public Player(Position position) {
@@ -51,4 +51,14 @@ public class Player extends AbstractCollidable {
     public Position getPosition() {
         return position;
     }
+
+    public int getFun() {
+        return fun;
+    }
+
+    public int getKnowledge() {
+        return knowledge;
+    }
+
+
 }
