@@ -28,13 +28,20 @@ public class Game {
 
     public void gameInit() {
         this.grid = new Grid(200, 200);
-        //this.player = new Player(Position);
+        this.player = new Player(PositionFactory.getPosition(grid.getCols() / 2, grid.getRows(), grid));
 
+
+        //adding items to the list and giving them a position
         addItemsToList();
         for (Item item : allItems) {
+            item.setPosition(PositionFactory.getItemPosition(grid));
             item.draw();
-        }
 
+        }
+        player.draw();
+        grid.draw();
+
+        /*
         //recycle items
         for (int i = 0; i < 6; i++) {
             activeItems.add(allItems.remove(i));
@@ -45,13 +52,9 @@ public class Game {
         }
 
 
-        PositionFactory.getPosition(0, 0, grid);
+*/
 
     }
-
-
-
-
 
 
 }

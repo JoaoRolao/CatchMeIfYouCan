@@ -43,12 +43,11 @@ public class Grid implements Collidable { //implements the -->Collidable interfa
     @Override
 
     public void draw() {
-        System.out.println("im a grid (draw method");
+        System.out.println("im a grid ");
     }
 
     @Override
     public boolean checkCollision() {
-        System.out.println("im a grid (col method");
         return false;
     }
 }

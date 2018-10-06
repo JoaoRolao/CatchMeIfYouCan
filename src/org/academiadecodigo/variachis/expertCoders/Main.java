@@ -11,13 +11,6 @@ public class Main {
 
         game.gameInit();
 
-
-        //test grid
-        Grid grid = new Grid(10, 10);
-        grid.checkCollision();
-        grid.draw();
-        grid.getCols();
-        grid.getRows();
     }
 
 
