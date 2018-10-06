@@ -4,6 +4,8 @@ import org.academiadecodigo.variachis.expertCoders.AbstractCollidable;
 import org.academiadecodigo.variachis.expertCoders.grid.Grid;
 import org.academiadecodigo.variachis.expertCoders.grid.position.Position;
 
+import java.awt.*;
+
 public class Item extends AbstractCollidable {
 
     private Grid grid;
@@ -56,6 +58,9 @@ public class Item extends AbstractCollidable {
 
     @Override
     public void draw() {
+
+        //Rectangle potato = new Rectangle();
+
         position.draw();
         System.out.println("I'm a fucking item");
 

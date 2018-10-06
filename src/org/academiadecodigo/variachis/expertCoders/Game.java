@@ -2,6 +2,7 @@ package org.academiadecodigo.variachis.expertCoders;
 
 import java.util.LinkedList;
 
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.academiadecodigo.variachis.expertCoders.grid.Grid;
 import org.academiadecodigo.variachis.expertCoders.grid.position.Position;
 import org.academiadecodigo.variachis.expertCoders.grid.position.PositionFactory;
@@ -16,7 +17,6 @@ public class Game {
     private Player player;
     private Grid grid;
     private ItemFactory itemFactory = new ItemFactory();
-    private PositionFactory positionFactory = new PositionFactory();
     private boolean gameOver;
 
 
@@ -32,7 +32,6 @@ public class Game {
     public void gameInit() {
         this.grid = new Grid(60, 80);
         this.player = new Player(PositionFactory.getPosition(grid.getCols() / 2, grid.getRows(), grid));
-
 
         //adding items to the list and giving them a position
         addItemsToList();
