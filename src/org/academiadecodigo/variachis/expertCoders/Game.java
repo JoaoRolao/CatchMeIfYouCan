@@ -18,7 +18,7 @@ public class Game {
     private Grid grid;
     private ItemFactory itemFactory = new ItemFactory();
     private boolean gameOver;
-
+    private String actualLevel = "levelOne"; //testing the level background image -> actual level = level one
 
     public void addItemsToList() {
         int items = 0;
@@ -70,6 +70,11 @@ public class Game {
         }
 
         while (!gameOver) {
+
+            //CHECK LEVEL METHOD -> ALLWAYS LEVEL ONE INIT VALUE TODO:CHANGE THE VAL OF CURRENTLEVEL WHEN CONDITION TO NEXT LVL MEETS
+            checkLevel(); //level one will start -> meaning: loading the image level and setting it in the grid.
+
+
             //TODO: IF PLAYER PRESS KEY PLAYER.MOVE()
 
 
@@ -84,9 +89,9 @@ public class Game {
                 if (player.checkCollision(item.getPosition())) {
                     System.out.println("COLIDEDDDDD with player");
                     item.setColided(true);
-                    switch (item.getType()){
+                    switch (item.getType()) {
                         case CAP:
-                            player.setKnowledge(player.getKnowledge() -2);
+                            player.setKnowledge(player.getKnowledge() - 2);
                             break;
                         case MAC:
                             player.setKnowledge(player.getKnowledge() + 2);
@@ -118,7 +123,7 @@ public class Game {
                 }
             }
 
-            if(player.getFun() <= 0 || player.getKnowledge() <=0){
+            if (player.getFun() <= 0 || player.getKnowledge() <= 0) {
                 gameOver = true;
             }
 
@@ -126,6 +131,36 @@ public class Game {
 
     }
 
+
+    //method check level -> makes the program more soft(?) using a switch to check the actual le
+    public void checkLevel(){
+
+        switch (actualLevel){ //init value of actual level will allways be levelOne
+
+            case "levelOne":
+                levelOne(); //call method level 1 -> gonna load and draw the bg image
+
+
+        }
+
+    }
+
+    //LEVEL ONE METHOD -> LOAD AND SET BG IMAGE
+    public void levelOne() {
+
+        System.out.println("Entered level 1");
+
+        //instantiating new picture object -> loading image from resources.
+        Picture mainLevel = new Picture();
+        mainLevel.load("game_levelResized.jpg");
+        mainLevel.translate(grid.getCell(), grid.getCell()); //fills the 800x600 resolution, translated cell value to exactly fill the limit border
+        mainLevel.draw();
+
+
+    }
+
+
+///WAT IZ DIS?
 /*
     //recycle items
     for (int i = 0; i < 6; i++) {

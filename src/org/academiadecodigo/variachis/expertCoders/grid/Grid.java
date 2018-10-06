@@ -17,7 +17,6 @@ public class Grid implements Collidable { //implements the -->Collidable interfa
     private Item item;
     private Rectangle field;
     private int cell = 10;
-    private String level = "mainLevel";
 
 
     //constructor -> initializing the properties -> delegating to Position since Position HAS-A grid
@@ -39,6 +38,11 @@ public class Grid implements Collidable { //implements the -->Collidable interfa
         return rows;
     }
 
+    //GETTER TO GET THE CELL VALUE WHEN TRANSLATING IMAGES TO EXACTLY FILL THE WINDOW
+    public int getCell() {
+        return cell;
+    }
+
     //method to make a grid position
     public Position makePosition(int cols, int rows) {
 
@@ -55,19 +59,6 @@ public class Grid implements Collidable { //implements the -->Collidable interfa
         this.field = new Rectangle(PADDING, PADDING, cols * cell, rows * cell);
 
         this.field.draw();
-
-        //TESTING MAIN LEVEL BACKGROUND IMAGE ->IF THE LEVEL IS EQUALS TO "mainLevel" we instantiate a picture and load/draw the image
-        if (level.equals("mainLevel")) {
-            System.out.println("Entered level 1");
-
-            //main level background (testing)
-            Picture mainLevel = new Picture();
-            mainLevel.load("game_levelResized.jpg");
-            //mainLevel.grow();
-            mainLevel.translate(cell, cell);
-            mainLevel.draw();
-        }
-
 
         System.out.println("im a grid ");
     }
