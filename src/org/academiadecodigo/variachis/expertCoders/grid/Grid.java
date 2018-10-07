@@ -16,20 +16,12 @@ public class Grid implements Collidable { //implements the -->Collidable interfa
     private Item item;
     private Rectangle field;
     private int cell = 10;
-    private int width;
-    private int height;
-
 
     //constructor -> initializing the properties -> delegating to Position since Position HAS-A grid
     public Grid(int rows, int cols) {
 
         this.rows = rows;
         this.cols = cols;
-        this.width = cols * cell + PADDING;
-        this.height = rows * cell + PADDING;
-        //this.width = field.getWidth();
-        //this.height = field.getHeight();
-
 
     }
 
@@ -56,7 +48,6 @@ public class Grid implements Collidable { //implements the -->Collidable interfa
 
     }
 
-
     //*************inherited interface methods ---TO WORK--- *********************
     @Override
     public void draw() {
@@ -80,11 +71,11 @@ public class Grid implements Collidable { //implements the -->Collidable interfa
     }
 
     public int getHeight() {
-        return height;
+        return this.field.getHeight();
     }
 
     public int getWidth() {
-        return width;
+        return this.field.getWidth();
     }
 
 

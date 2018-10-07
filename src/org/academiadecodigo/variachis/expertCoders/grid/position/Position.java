@@ -99,6 +99,4 @@ public class Position implements Collidable {
         return col;
     }
 
-
-
 }

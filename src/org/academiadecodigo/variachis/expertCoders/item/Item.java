@@ -89,7 +89,7 @@ public class Item extends AbstractCollidable {
 
         picture.load("beer.png");
         picture.draw();
-        picture.translate(getPosition().getRow(), getPosition().getCol()); //TODO:FIX PROBLEM HERE
+        picture.translate(40, 40); //TODO:FIX PROBLEM HERE
         //move();
         picture.delete();
     }

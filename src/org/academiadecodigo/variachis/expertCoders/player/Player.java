@@ -2,6 +2,7 @@ package org.academiadecodigo.variachis.expertCoders.player;
 
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
+import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.academiadecodigo.variachis.expertCoders.AbstractCollidable;
@@ -31,10 +32,19 @@ public class Player extends AbstractCollidable implements KeyboardHandler {
     //initialize keyboard handlers
     public void init(){
 
+        //left key pressed
         KeyboardEvent left = new KeyboardEvent();
         left.setKey(KeyboardEvent.KEY_LEFT);
+        left.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+
+        //right key pressed
+        KeyboardEvent right = new KeyboardEvent();
+        right.setKey(KeyboardEvent.KEY_RIGHT);
+        right.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
 
 
+        keyboard.addEventListener(left);
+        keyboard.addEventListener(right);
 
     }
 
@@ -44,7 +54,14 @@ public class Player extends AbstractCollidable implements KeyboardHandler {
     @Override
     public void keyPressed(KeyboardEvent keyboardEvent) {
 
-
+        switch (keyboardEvent.getKey()) {
+            case KeyboardEvent.KEY_LEFT:
+                player.translate(-10,0);
+                break;
+            case KeyboardEvent.KEY_RIGHT:
+                player.translate(10, 0);
+                break;
+        }
 
     }
 
