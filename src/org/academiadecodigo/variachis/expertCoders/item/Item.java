@@ -87,11 +87,12 @@ public class Item extends AbstractCollidable {
         Picture cap = new Picture();
         cap.load("devil.png");
         cap.draw();
+        //position.draw();
         move(); //start moving down
         //cap.translate(getPosition().getRow(), getPosition().getCol()); //TODO:FIX PROBLEM HERE
         cap.translate(position.getRow(), position.getCol());
         //cap.translate(g);
-        Thread.sleep(1000);
+        Thread.sleep(500);
         cap.delete();
     }
 

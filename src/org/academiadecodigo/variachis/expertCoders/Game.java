@@ -33,6 +33,7 @@ public class Game {
         this.grid = new Grid(60, 80);
         this.player = new Player(PositionFactory.getPosition(grid.getCols() / 2, grid.getRows(), grid));
 
+
         //adding items to the list and giving them a position
         addItemsToList();
         for (int i = 0; i < 10; i++) {
@@ -128,7 +129,7 @@ public class Game {
 
     }
 
-    //*************************LEVELS METHOS***********************
+    //*************************LEVELS METHODS***********************
 
     //method check level -> makes the program more soft(?) using a switch to check the actual le
     public void checkLevel() {
@@ -150,24 +151,12 @@ public class Game {
 
         //instantiating new picture object -> loading image from resources.
         Picture mainLevel = new Picture();
-        mainLevel.load("game_levelResized.jpg");
+        //mainLevel.load("levelOne.jpg");
         mainLevel.translate(grid.getCell(), grid.getCell()); //fills the 800x600 resolution, translated cell value to exactly fill the limit border
         mainLevel.draw();
 
 
     }
-
-///WAT IZ DIS?
-/*
-    //recycle items
-    for (int i = 0; i < 6; i++) {
-        activeItems.add(allItems.remove(i));
-    }
-
-    for (int i = 0; i < 6; i++) {
-        allItems.add(activeItems.remove(i));
-    }
-*/
 
 
 }
