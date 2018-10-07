@@ -65,26 +65,23 @@ public class Game {
 
     public void gameStart() {
 
-        for (Item item : activeItems) {
-
-        }
+        //CHECK LEVEL METHOD -> ALLWAYS LEVEL ONE INIT VALUE TODO:CHANGE THE VAL OF CURRENTLEVEL WHEN CONDITION TO NEXT LVL MEETS
+        checkLevel(); //level one will start -> meaning: loading the image level and setting it in the grid.
 
         while (!gameOver) {
-
-            //CHECK LEVEL METHOD -> ALLWAYS LEVEL ONE INIT VALUE TODO:CHANGE THE VAL OF CURRENTLEVEL WHEN CONDITION TO NEXT LVL MEETS
-            checkLevel(); //level one will start -> meaning: loading the image level and setting it in the grid.
-
 
             //TODO: IF PLAYER PRESS KEY PLAYER.MOVE()
 
 
+
+
+
+
             for (Item item : activeItems) {
 
-                item.move();
+                //draw the items and move them down
                 item.draw();
-            }
-
-            for (Item item : activeItems) {
+                //item.move(); //doesnt need this since im calling the move in the icon methods to move each item.(?)
 
                 if (player.checkCollision(item.getPosition())) {
                     System.out.println("COLIDEDDDDD with player");
@@ -131,11 +128,12 @@ public class Game {
 
     }
 
+    //*************************LEVELS METHOS***********************
 
     //method check level -> makes the program more soft(?) using a switch to check the actual le
-    public void checkLevel(){
+    public void checkLevel() {
 
-        switch (actualLevel){ //init value of actual level will allways be levelOne
+        switch (actualLevel) { //init value of actual level will allways be levelOne
 
             case "levelOne":
                 levelOne(); //call method level 1 -> gonna load and draw the bg image
@@ -158,7 +156,6 @@ public class Game {
 
 
     }
-
 
 ///WAT IZ DIS?
 /*

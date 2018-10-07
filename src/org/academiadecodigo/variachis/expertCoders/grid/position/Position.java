@@ -52,10 +52,12 @@ public class Position implements Collidable {
 
     @Override
     public void draw() {
+
         System.out.println("col: " + col + " row: " + row);
 
     }
 
+    //TODO: FIX THE WRONG METHODS. MOVE DOWN ALREADY FIXED
     public void moveRight() {
 
         col++;
@@ -66,9 +68,11 @@ public class Position implements Collidable {
         col--;
     }
 
+    //move down (fixed)
     public void moveDown() {
 
-        row++;
+        col++;
+
     }
 
     public boolean equals(Position position) {
@@ -82,5 +86,9 @@ public class Position implements Collidable {
 
     public int getRow() {
         return row;
+    }
+
+    public int getCol() {
+        return col;
     }
 }

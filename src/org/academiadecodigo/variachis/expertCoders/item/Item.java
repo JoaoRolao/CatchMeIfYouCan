@@ -1,5 +1,6 @@
 package org.academiadecodigo.variachis.expertCoders.item;
 
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.academiadecodigo.variachis.expertCoders.AbstractCollidable;
 import org.academiadecodigo.variachis.expertCoders.grid.Grid;
 import org.academiadecodigo.variachis.expertCoders.grid.position.Position;
@@ -12,7 +13,6 @@ public class Item extends AbstractCollidable {
     private Position position;
     private Type type;
     private boolean colided;
-
 
 
     public Item(Type type) {
@@ -47,7 +47,7 @@ public class Item extends AbstractCollidable {
     }
 
     public void move() {
-        System.out.println("movin item");
+        System.out.println("moving item");
         this.position.moveDown();
     }
 
@@ -59,13 +59,41 @@ public class Item extends AbstractCollidable {
     @Override
     public void draw() {
 
-        //Rectangle potato = new Rectangle();
+        switch (random()) {
+            case CAP:
+                try {
+                    setCapIcon();
+                }catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            case MAC:
+                System.out.println("MAC ICON METHOD HERE");
+            case PEN:
+                System.out.println("PEN ICON METHOD HERE");
+            case COCK:
+                System.out.println("COCK ICON METHOD HERE");
+            case POLY:
+                System.out.println("POLY ICON METHOD HERE");
+        }
 
         position.draw();
         System.out.println("I'm a fucking item");
 
     }
 
+
+    //*********************DRAW THE CAP ICON**********************
+    public void setCapIcon() throws InterruptedException {
+        Picture cap = new Picture();
+        cap.load("devil.png");
+        cap.draw();
+        move(); //start moving down
+        cap.translate(getPosition().getRow(), getPosition().getCol()); //TODO:FIX PROBLEM HERE
+        Thread.sleep(1000);
+        cap.delete();
+    }
+
+    //SETTERS AND GETTER
     public void setPosition(Position position) {
         this.position = position;
     }
