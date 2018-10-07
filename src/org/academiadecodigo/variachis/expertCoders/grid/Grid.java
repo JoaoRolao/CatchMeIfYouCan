@@ -17,6 +17,8 @@ public class Grid implements Collidable { //implements the -->Collidable interfa
     private Item item;
     private Rectangle field;
     private int cell = 10;
+    private int witdth;
+    private int height;
 
 
     //constructor -> initializing the properties -> delegating to Position since Position HAS-A grid
@@ -24,6 +26,8 @@ public class Grid implements Collidable { //implements the -->Collidable interfa
 
         this.rows = rows;
         this.cols = cols;
+        this.witdth = cols * cell + PADDING;
+        this.height = rows * cell + PADDING;
 
     }
 
@@ -53,7 +57,7 @@ public class Grid implements Collidable { //implements the -->Collidable interfa
 
     //*************inherited interface methods ---TO WORK--- *********************
     @Override
-    public void draw() {
+    public void draw(Picture picture) {
 
         //field area ->added padding and the field size will be the colls * cell and row * cell
         this.field = new Rectangle(PADDING, PADDING, cols * cell, rows * cell);
@@ -71,4 +75,14 @@ public class Grid implements Collidable { //implements the -->Collidable interfa
 
         return false;
     }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public int getWitdth() {
+        return witdth;
+    }
+
+
 }

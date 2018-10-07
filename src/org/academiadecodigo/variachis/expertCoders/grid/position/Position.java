@@ -1,5 +1,6 @@
 package org.academiadecodigo.variachis.expertCoders.grid.position;
 
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.academiadecodigo.variachis.expertCoders.grid.Grid;
 
 import org.academiadecodigo.variachis.expertCoders.interfaces.Collidable;
@@ -51,10 +52,10 @@ public class Position implements Collidable {
     }
 
     @Override
-    public void draw() {
+    public void draw(Picture picture) {
 
-        grid.draw();
-
+        //grid.draw(picture);
+        picture.draw();
         System.out.println("col: " + col + " row: " + row);
 
     }
@@ -93,4 +94,7 @@ public class Position implements Collidable {
     public int getCol() {
         return col;
     }
+
+
+
 }

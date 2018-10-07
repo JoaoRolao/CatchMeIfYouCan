@@ -16,6 +16,7 @@ public class Player extends AbstractCollidable implements KeyboardHandler {
     private int knowledge = 50;
     private int fun = 50;
     private Keyboard keyboard;
+    private Picture player = new Picture();
 
 
     public Player(Position position) {
@@ -67,14 +68,10 @@ public class Player extends AbstractCollidable implements KeyboardHandler {
     }
 
     @Override
-    public void draw() {
+    public void draw(Picture picture) {
         //this.position.draw();
 
-        Picture player = new Picture();
-
-        player.load("playerTest.jpg");
-        player.draw();
-        position.draw();
+        this.position.draw(picture);
 
         //System.out.println("I'm the Player");   // draw must apply an image
     }

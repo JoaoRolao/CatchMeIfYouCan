@@ -1,5 +1,6 @@
 package org.academiadecodigo.variachis.expertCoders;
 
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.academiadecodigo.variachis.expertCoders.grid.Grid;
 import org.academiadecodigo.variachis.expertCoders.grid.position.Position;
 import org.academiadecodigo.variachis.expertCoders.interfaces.Collidable;
@@ -13,7 +14,7 @@ public class AbstractCollidable implements Collidable {
 
 
     @Override
-    public void draw() {
+    public void draw(Picture picture) {
 
     }
 

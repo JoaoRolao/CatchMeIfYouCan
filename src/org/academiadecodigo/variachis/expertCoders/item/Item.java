@@ -57,15 +57,12 @@ public class Item extends AbstractCollidable {
     }
 
     @Override
-    public void draw() {
+    public void draw(Picture picture) {
 
         switch (random()) {
             case CAP:
-                try {
-                    setCapIcon();
-                }catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+                setCapIcon();
+
             case MAC:
                 System.out.println("MAC ICON METHOD HERE");
             case PEN:
@@ -75,15 +72,14 @@ public class Item extends AbstractCollidable {
             case POLY:
                 System.out.println("POLY ICON METHOD HERE");
         }
-
-        position.draw();
+        position.draw(picture);
         System.out.println("I'm a fucking item");
 
     }
 
 
     //*********************DRAW THE CAP ICON**********************
-    public void setCapIcon() throws InterruptedException {
+    public void setCapIcon() {
         Picture cap = new Picture();
         cap.load("devil.png");
         cap.draw();
@@ -92,7 +88,6 @@ public class Item extends AbstractCollidable {
         //cap.translate(getPosition().getRow(), getPosition().getCol()); //TODO:FIX PROBLEM HERE
         cap.translate(position.getRow(), position.getCol());
         //cap.translate(g);
-        Thread.sleep(500);
         cap.delete();
     }
 
