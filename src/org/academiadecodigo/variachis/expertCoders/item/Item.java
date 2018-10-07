@@ -59,20 +59,24 @@ public class Item extends AbstractCollidable {
 
     @Override
     public void draw() {
-       position.draw();
+       //position.draw();
 
         switch (random()) {
             case CAP:
                 setCapIcon();
-
+                break;
             case MAC:
                setCapIcon();
+               break;
             case PEN:
                 setCapIcon();
+                break;
             case COCK:
                 setCapIcon();
+                break;
             case POLY:
                 setCapIcon();
+                break;
         }
 
     }
@@ -87,7 +91,7 @@ public class Item extends AbstractCollidable {
         picture.draw();
         picture.translate(getPosition().getRow(), getPosition().getCol()); //TODO:FIX PROBLEM HERE
         //move();
-        //picture.delete();
+        picture.delete();
     }
 
 
@@ -107,4 +111,6 @@ public class Item extends AbstractCollidable {
     public void setGrid(Grid grid) {
         this.grid = grid;
     }
+
+
 }

@@ -52,32 +52,10 @@ public class Game {
             activeItems.add(allItems.remove(i));
         }
 
-
-        for (Item item : activeItems) {
-            item.setPosition(PositionFactory.getItemPosition(grid));
-            switch (item.getType()){
-                case CAP:
-                    item.draw();
-                    break;
-                case MAC:
-                    item.draw();
-                    break;
-                case PEN:
-                    item.draw();
-                    break;
-                case COCK:
-                    item.draw();
-                    break;
-                case POLY:
-                    item.draw();
-                    break;
-
-            }
-        }
-
-
         for (Item item : allItems) {
             item.setPosition(PositionFactory.getItemPosition(grid));
+            System.out.println("ALL ITEMS DRAW");
+            item.draw();
         }
 
     }
@@ -99,7 +77,7 @@ public class Game {
         //CHECK LEVEL METHOD -> ALLWAYS LEVEL ONE INIT VALUE TODO:CHANGE THE VAL OF CURRENTLEVEL WHEN CONDITION TO NEXT LVL MEETS
 
         while (!gameOver) {
-
+            System.out.println("ENTERED WHILE");
             //TODO: IF PLAYER PRESS KEY PLAYER.MOVE()
 
 
@@ -108,7 +86,9 @@ public class Game {
                 //draw the items and move them down
                 item.draw();
 
-                item.move();
+                //item.move();
+
+                System.out.println("ACTIVE ITEMS DRAW");
 
                 if (player.checkCollision(item.getPosition())) {
                     System.out.println("COLIDEDDDDD with player");

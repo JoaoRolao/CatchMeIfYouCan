@@ -1,6 +1,5 @@
 package org.academiadecodigo.variachis.expertCoders.player;
 
-import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
@@ -74,7 +73,7 @@ public class Player extends AbstractCollidable implements KeyboardHandler {
     @Override
     public void draw() {
         player.load("playerTest.jpg");
-        int i = grid.getWitdth() / 2;
+        int i = grid.getWidth() / 2;
         int ii = grid.getHeight() / 2;
         player.draw();
         player.translate(i - 45, ii- -185 );

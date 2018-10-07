@@ -1,7 +1,6 @@
 package org.academiadecodigo.variachis.expertCoders.grid;
 
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
-import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.academiadecodigo.variachis.expertCoders.grid.position.Position;
 import org.academiadecodigo.variachis.expertCoders.interfaces.Collidable;
 import org.academiadecodigo.variachis.expertCoders.item.Item;
@@ -17,7 +16,7 @@ public class Grid implements Collidable { //implements the -->Collidable interfa
     private Item item;
     private Rectangle field;
     private int cell = 10;
-    private int witdth;
+    private int width;
     private int height;
 
 
@@ -26,8 +25,11 @@ public class Grid implements Collidable { //implements the -->Collidable interfa
 
         this.rows = rows;
         this.cols = cols;
-        this.witdth = cols * cell + PADDING;
+        this.width = cols * cell + PADDING;
         this.height = rows * cell + PADDING;
+        //this.width = field.getWidth();
+        //this.height = field.getHeight();
+
 
     }
 
@@ -65,7 +67,7 @@ public class Grid implements Collidable { //implements the -->Collidable interfa
         this.field.draw();
 
 
-        System.out.println("im a grid ");
+        //System.out.println("im a grid ");
     }
 
     @Override
@@ -81,8 +83,8 @@ public class Grid implements Collidable { //implements the -->Collidable interfa
         return height;
     }
 
-    public int getWitdth() {
-        return witdth;
+    public int getWidth() {
+        return width;
     }
 
 

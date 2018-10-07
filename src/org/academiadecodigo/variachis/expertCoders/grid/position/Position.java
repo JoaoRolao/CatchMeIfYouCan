@@ -4,6 +4,7 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.academiadecodigo.variachis.expertCoders.grid.Grid;
 
 import org.academiadecodigo.variachis.expertCoders.interfaces.Collidable;
+import org.academiadecodigo.variachis.expertCoders.item.Item;
 
 public class Position implements Collidable {
 
@@ -11,6 +12,7 @@ public class Position implements Collidable {
     private int col;
     private Grid grid;
     private boolean collided;
+    Item item;
 
 
     public Position(int col, int row, Grid grid) {
@@ -74,6 +76,7 @@ public class Position implements Collidable {
 
     //move down (fixed)
     public void moveDown() {
+
 
         row++;
 
