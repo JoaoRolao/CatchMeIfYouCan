@@ -24,9 +24,9 @@ public class GameLevel implements Drawable {
     }
 
     @Override
-    public void draw(Picture picture) {
+    public void draw() {
 
-        //checkLevel(actualLevel);
+        checkLevel(actualLevel);
         picture.translate(grid.getCell(),grid.getCell()); //fills the 800x600 resolution, translated cell value to exactly fill the limit border
         picture.draw();
         
@@ -54,7 +54,7 @@ public class GameLevel implements Drawable {
         //instantiating new picture object -> loading image from resources.
         
         picture.load("levelOne.jpg");
-        picture.translate(grid.getCell(),grid.getCell()); //fills the 800x600 resolution, translated cell value to exactly fill the limit border
+        picture.translate(grid.getCell() - grid.PADDING,grid.getCell() - grid.PADDING); //fills the 800x600 resolution, translated cell value to exactly fill the limit border
         picture.draw();
 
 

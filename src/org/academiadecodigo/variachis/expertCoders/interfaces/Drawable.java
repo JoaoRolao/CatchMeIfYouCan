@@ -4,6 +4,6 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public interface Drawable{
 
-    void draw(Picture picture);
+    void draw();
 
 }

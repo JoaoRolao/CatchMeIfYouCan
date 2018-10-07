@@ -57,12 +57,13 @@ public class Item extends AbstractCollidable {
     }
 
     @Override
-    public void draw(Picture picture) {
+    public void draw() {
+
 
         switch (random()) {
             case CAP:
                 setCapIcon();
-
+                break;
             case MAC:
                 System.out.println("MAC ICON METHOD HERE");
             case PEN:
@@ -72,24 +73,25 @@ public class Item extends AbstractCollidable {
             case POLY:
                 System.out.println("POLY ICON METHOD HERE");
         }
-        position.draw(picture);
+        //position.draw();
         System.out.println("I'm a fucking item");
 
     }
 
 
     //*********************DRAW THE CAP ICON**********************
+
+
     public void setCapIcon() {
         Picture cap = new Picture();
-        cap.load("devil.png");
+        cap.load("beer.png");
         cap.draw();
-        //position.draw();
         move(); //start moving down
-        //cap.translate(getPosition().getRow(), getPosition().getCol()); //TODO:FIX PROBLEM HERE
-        cap.translate(position.getRow(), position.getCol());
-        //cap.translate(g);
-        cap.delete();
+        cap.translate(getPosition().getRow(), getPosition().getCol()); //TODO:FIX PROBLEM HERE
+        //cap.translate(position.getRow(), position.getCol());
+        //cap.delete();
     }
+
 
     //SETTERS AND GETTER
     public void setPosition(Position position) {
@@ -104,5 +106,7 @@ public class Item extends AbstractCollidable {
         return type;
     }
 
-
+    public void setGrid(Grid grid) {
+        this.grid = grid;
+    }
 }

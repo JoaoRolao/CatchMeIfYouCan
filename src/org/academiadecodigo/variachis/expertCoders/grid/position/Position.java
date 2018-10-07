@@ -52,10 +52,10 @@ public class Position implements Collidable {
     }
 
     @Override
-    public void draw(Picture picture) {
+    public void draw() {
 
-        //grid.draw(picture);
-        picture.draw();
+        grid.draw();
+
         System.out.println("col: " + col + " row: " + row);
 
     }

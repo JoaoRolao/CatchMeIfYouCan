@@ -6,6 +6,7 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.academiadecodigo.variachis.expertCoders.AbstractCollidable;
+import org.academiadecodigo.variachis.expertCoders.grid.Grid;
 import org.academiadecodigo.variachis.expertCoders.grid.position.Position;
 
 
@@ -17,6 +18,8 @@ public class Player extends AbstractCollidable implements KeyboardHandler {
     private int fun = 50;
     private Keyboard keyboard;
     private Picture player = new Picture();
+    private Grid grid; //testing player pos with grid
+
 
 
     public Player(Position position) {
@@ -31,6 +34,7 @@ public class Player extends AbstractCollidable implements KeyboardHandler {
 
         KeyboardEvent left = new KeyboardEvent();
         left.setKey(KeyboardEvent.KEY_LEFT);
+
 
 
     }
@@ -68,12 +72,14 @@ public class Player extends AbstractCollidable implements KeyboardHandler {
     }
 
     @Override
-    public void draw(Picture picture) {
+    public void draw() {
+        player.load("playerTest.jpg");
+        int i = grid.getWitdth() / 2;
+        int ii = grid.getHeight() / 2;
+        player.draw();
+        player.translate(i - 45, ii- -185 );
         //this.position.draw();
 
-        this.position.draw(picture);
-
-        //System.out.println("I'm the Player");   // draw must apply an image
     }
 
     public void setKnowledge(int knowledge) {
@@ -98,4 +104,7 @@ public class Player extends AbstractCollidable implements KeyboardHandler {
     }
 
 
+    public void setGrid(Grid grid) {
+        this.grid = grid;
+    }
 }

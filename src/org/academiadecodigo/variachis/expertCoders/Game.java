@@ -20,6 +20,7 @@ public class Game {
     private ItemFactory itemFactory = new ItemFactory();
     private boolean gameOver;
     private GameLevel gameLevel = new GameLevel();
+    //private Picture picture = new Picture();
 
     public void addItemsToList() {
         int items = 0;
@@ -32,13 +33,22 @@ public class Game {
 
     public void gameInit() {
         this.grid = new Grid(60, 80);
+        grid.draw();
+
         this.player = new Player(PositionFactory.getPosition(grid.getCols() / 2, grid.getRows(), grid));
+
+        //loading level 1
         gameLevel.setGrid(grid);
-        //grid.draw();
         gameLevel.setActualLevel("levelOne"); //sets current level at level one
-        Picture level = new Picture();
-        level.load("levelOne.jpg");
-        gameLevel.draw(level);
+        gameLevel.draw();
+
+        //add player to game
+        player.setGrid(grid);
+        player.draw();
+
+        //TESTING ITEMS
+        //item.setGrid(grid);
+        //item.draw();
 
         //adding items to the list and giving them a position
         addItemsToList();
@@ -46,49 +56,33 @@ public class Game {
             activeItems.add(allItems.remove(i));
         }
 
+        /*
         for (Item item : activeItems) {
             item.setPosition(PositionFactory.getItemPosition(grid));
             switch (item.getType()){
                 case CAP:
-                    Picture picture = new Picture();
-                    picture.load("devil.png");
-                    item.draw(picture);
-                    //picture.translate(item.getPosition().getRow(), item.getPosition().getCol());
+                    item.draw();
                     break;
                 case MAC:
-                    Picture picture1 = new Picture();
-                    picture1.load("devil.png");
-                    item.draw(picture1);
+                    item.draw();
                     break;
                 case PEN:
-                    Picture picture2 = new Picture();
-                    picture2.load("devil.png");
-                    item.draw(picture2);
+                    item.draw();
                     break;
                 case COCK:
-                    Picture picture3 = new Picture();
-                    picture3.load("devil.png");
-                    item.draw(picture3);
+                    item.draw();
                     break;
                 case POLY:
-                    Picture picture4 = new Picture();
-                    picture4.load("devil.png");
-                    item.draw(picture4);
+                    item.draw();
                     break;
 
             }
         }
+        */
 
         for (Item item : allItems) {
             item.setPosition(PositionFactory.getItemPosition(grid));
         }
-        Picture picturePlayer = new Picture();
-        picturePlayer.load("playerTest.jpg");
-
-        player.draw(picturePlayer);
-        int i = grid.getWitdth() / 2;
-        int ii = grid.getHeight() / 2;
-        picturePlayer.translate(i - 45, ii - 45 );
 
     }
 
@@ -116,6 +110,7 @@ public class Game {
             for (Item item : activeItems) {
 
                 //draw the items and move them down
+                item.draw();
 
                 //item.move(); //doesnt need this since im calling the move in the icon methods to move each item.(?)
 

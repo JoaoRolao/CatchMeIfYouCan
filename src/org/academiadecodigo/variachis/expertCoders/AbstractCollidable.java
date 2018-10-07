@@ -14,7 +14,7 @@ public class AbstractCollidable implements Collidable {
 
 
     @Override
-    public void draw(Picture picture) {
+    public void draw() {
 
     }
 

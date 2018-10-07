@@ -57,7 +57,7 @@ public class Grid implements Collidable { //implements the -->Collidable interfa
 
     //*************inherited interface methods ---TO WORK--- *********************
     @Override
-    public void draw(Picture picture) {
+    public void draw() {
 
         //field area ->added padding and the field size will be the colls * cell and row * cell
         this.field = new Rectangle(PADDING, PADDING, cols * cell, rows * cell);
