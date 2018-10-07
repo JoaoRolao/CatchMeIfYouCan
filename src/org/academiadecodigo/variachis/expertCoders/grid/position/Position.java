@@ -53,6 +53,8 @@ public class Position implements Collidable {
     @Override
     public void draw() {
 
+        grid.draw();
+
         System.out.println("col: " + col + " row: " + row);
 
     }
@@ -71,7 +73,7 @@ public class Position implements Collidable {
     //move down (fixed)
     public void moveDown() {
 
-        col++;
+        row++;
 
     }
 

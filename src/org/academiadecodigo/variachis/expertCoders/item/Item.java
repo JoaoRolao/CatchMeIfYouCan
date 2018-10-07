@@ -88,7 +88,9 @@ public class Item extends AbstractCollidable {
         cap.load("devil.png");
         cap.draw();
         move(); //start moving down
-        cap.translate(getPosition().getRow(), getPosition().getCol()); //TODO:FIX PROBLEM HERE
+        //cap.translate(getPosition().getRow(), getPosition().getCol()); //TODO:FIX PROBLEM HERE
+        cap.translate(position.getRow(), position.getCol());
+        //cap.translate(g);
         Thread.sleep(1000);
         cap.delete();
     }
