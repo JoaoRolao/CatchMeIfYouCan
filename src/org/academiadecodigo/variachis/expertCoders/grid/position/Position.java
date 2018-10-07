@@ -49,6 +49,7 @@ public class Position implements Collidable {
     public boolean checkCollision(Position position) {
 
         return this.equals(position);
+
     }
 
     @Override

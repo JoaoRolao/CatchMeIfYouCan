@@ -46,17 +46,13 @@ public class Game {
         player.setGrid(grid);
         player.draw();
 
-        //TESTING ITEMS
-        //item.setGrid(grid);
-        //item.draw();
-
         //adding items to the list and giving them a position
         addItemsToList();
         for (int i = 0; i < 10; i++) {
             activeItems.add(allItems.remove(i));
         }
 
-        /*
+
         for (Item item : activeItems) {
             item.setPosition(PositionFactory.getItemPosition(grid));
             switch (item.getType()){
@@ -78,7 +74,7 @@ public class Game {
 
             }
         }
-        */
+
 
         for (Item item : allItems) {
             item.setPosition(PositionFactory.getItemPosition(grid));
@@ -112,7 +108,7 @@ public class Game {
                 //draw the items and move them down
                 item.draw();
 
-                //item.move(); //doesnt need this since im calling the move in the icon methods to move each item.(?)
+                item.move();
 
                 if (player.checkCollision(item.getPosition())) {
                     System.out.println("COLIDEDDDDD with player");

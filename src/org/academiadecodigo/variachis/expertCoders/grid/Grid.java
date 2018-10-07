@@ -64,6 +64,7 @@ public class Grid implements Collidable { //implements the -->Collidable interfa
 
         this.field.draw();
 
+
         System.out.println("im a grid ");
     }
 

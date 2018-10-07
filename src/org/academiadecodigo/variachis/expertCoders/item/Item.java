@@ -13,6 +13,7 @@ public class Item extends AbstractCollidable {
     private Position position;
     private Type type;
     private boolean colided;
+    private Picture picture = new Picture();
 
 
     public Item(Type type) {
@@ -58,23 +59,21 @@ public class Item extends AbstractCollidable {
 
     @Override
     public void draw() {
-
+       position.draw();
 
         switch (random()) {
             case CAP:
                 setCapIcon();
-                break;
+
             case MAC:
-                System.out.println("MAC ICON METHOD HERE");
+               setCapIcon();
             case PEN:
-                System.out.println("PEN ICON METHOD HERE");
+                setCapIcon();
             case COCK:
-                System.out.println("COCK ICON METHOD HERE");
+                setCapIcon();
             case POLY:
-                System.out.println("POLY ICON METHOD HERE");
+                setCapIcon();
         }
-        //position.draw();
-        System.out.println("I'm a fucking item");
 
     }
 
@@ -83,13 +82,12 @@ public class Item extends AbstractCollidable {
 
 
     public void setCapIcon() {
-        Picture cap = new Picture();
-        cap.load("beer.png");
-        cap.draw();
-        move(); //start moving down
-        cap.translate(getPosition().getRow(), getPosition().getCol()); //TODO:FIX PROBLEM HERE
-        //cap.translate(position.getRow(), position.getCol());
-        //cap.delete();
+
+        picture.load("beer.png");
+        picture.draw();
+        picture.translate(getPosition().getRow(), getPosition().getCol()); //TODO:FIX PROBLEM HERE
+        //move();
+        //picture.delete();
     }
 
 

@@ -67,7 +67,7 @@ public class Player extends AbstractCollidable implements KeyboardHandler {
     }
 
     @Override
-    public boolean checkCollision(Position position) {
+    public boolean checkCollision(Position position){
         return this.position.checkCollision(position);
     }
 
