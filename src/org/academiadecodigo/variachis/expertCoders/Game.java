@@ -53,9 +53,10 @@ public class Game {
 
         while (!gameOver) {
             //TODO: IF PLAYER PRESS KEY PLAYER.MOVE()
+            player.move(Position.Direction.LEFT);
+            player.move(Position.Direction.RIGHT);
 
             for (Item item : activeItems) {
-                item.drawtest();
                 item.move(Position.Direction.DOWN);
 
                 if (player.checkCollision(item.getPosition())) {

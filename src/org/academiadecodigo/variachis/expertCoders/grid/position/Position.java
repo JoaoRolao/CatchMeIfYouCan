@@ -14,12 +14,6 @@ public class Position implements Collidable {
     private boolean collided;
 
 
-    @Override
-    public String toString() {
-        return ("Col: " + col
-                + " Row: " + row + "");
-    }
-
     public Position(int col, int row, Grid grid) {
 
         this.col = col;

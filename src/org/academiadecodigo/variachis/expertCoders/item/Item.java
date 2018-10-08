@@ -15,10 +15,6 @@ public class Item extends AbstractCollidable {
     private Picture picture = new Picture();
 
 
-    public void drawtest(){
-        System.out.println("Col/Row: " + this.getPosition() + " .");
-    }
-
     public Item(Type type, Position position) {
         super(position);
         this.type = type;

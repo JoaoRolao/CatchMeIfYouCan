@@ -34,7 +34,7 @@ public class Player extends AbstractCollidable {
     }
 
     @Override
-    protected void move(Position.Direction direction) {
+    public void move(Position.Direction direction) {
         super.move(direction);
     }
 
