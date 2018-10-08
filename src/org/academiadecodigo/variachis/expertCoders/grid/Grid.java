@@ -10,8 +10,6 @@ public class Grid implements Collidable { //implements the -->Collidable interfa
     //properties of the grid
     private int rows;   //grid has rows
     private int cols;   //grid has columns
-    private Player player;
-    private Item item;
 
 
     //constructor -> initializing the properties -> delegating to Position since Position HAS-A grid
@@ -31,13 +29,7 @@ public class Grid implements Collidable { //implements the -->Collidable interfa
         return rows;
     }
 
-    //method to make a grid position
-    public Position makePosition(int cols, int rows){
-
-        return new Position(cols, rows, this);
-
-    }
-
+   
 
     //*************inherited interface methods ---TO WORK--- *********************
     @Override
@@ -47,9 +39,6 @@ public class Grid implements Collidable { //implements the -->Collidable interfa
 
     @Override
     public boolean checkCollision(Position position) {
-        if ((position.getRow() == rows)){
-            return true;
-        }
-        return false;
+        return (position.getRow() == rows); // TODO: 08/10/2018  
     }
 }

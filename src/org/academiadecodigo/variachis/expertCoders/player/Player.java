@@ -7,13 +7,12 @@ import org.academiadecodigo.variachis.expertCoders.grid.position.Position;
 public class Player extends AbstractCollidable {
 
 
-    private Position position;
     private int knowledge = 0;
     private int fun = 0;
 
 
     public Player(Position position) {
-        this.position = position;
+        super(position);
     }
 
 
@@ -29,7 +28,7 @@ public class Player extends AbstractCollidable {
     }
 
     @Override
-    public boolean checkCollision(Position position) {
+    public boolean checkCollision(Position position) { // TODO: 08/10/2018
         return this.position.checkCollision(position);
     }
 

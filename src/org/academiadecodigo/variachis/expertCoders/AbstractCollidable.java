@@ -9,12 +9,19 @@ public class AbstractCollidable implements Collidable {
 
 
     private Position position;
-    private Grid grid;
 
+
+    public AbstractCollidable(Position position) {
+        this.position = position;
+    }
 
     @Override
     public void draw() {
 
+    }
+
+    protected void move(Direction direction) {
+        position.move(direction);
     }
 
     @Override

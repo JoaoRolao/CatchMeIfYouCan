@@ -7,13 +7,13 @@ import org.academiadecodigo.variachis.expertCoders.grid.position.Position;
 public class Item extends AbstractCollidable {
 
     private Grid grid;
-    private Position position;
     private Type type;
     private boolean colided;
 
 
 
-    public Item(Type type) {
+    public Item(Type type, Position position) {
+        super(position);
         this.type = type;
     }
     //Enum type inner class

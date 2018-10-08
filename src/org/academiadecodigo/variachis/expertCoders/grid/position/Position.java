@@ -55,6 +55,17 @@ public class Position implements Collidable {
 
     }
 
+    public void move(Direction direction) {
+        switch (direction) {
+            case LEFT:
+                moveLeft();
+                return;
+            case RIGHT:
+                moveRight();
+                return;
+        }
+    }
+
     public void moveRight() {
 
         col++;
