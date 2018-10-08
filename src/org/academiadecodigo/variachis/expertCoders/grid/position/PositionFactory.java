@@ -11,14 +11,14 @@ public class PositionFactory {
     private Grid grid;
 
     //method to instantiate the positions
-    public static Position getPosition(int column, int row, Grid grid) {
+    public static Position getPlayerPosition(Grid grid) {
 
-        return new Position(column, row, grid);
+        return new Position(grid.getCols() / 2, grid.getRows(), grid);
 
     }
 
     public static Position getItemPosition(Grid grid){
-        int randomCol = (int)(Math.random()* grid.getCell());
+        int randomCol = (int)(Math.random()* grid.getCols());
         return new Position(randomCol,0,grid);
     }
 

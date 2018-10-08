@@ -1,10 +1,10 @@
 package org.academiadecodigo.variachis.expertCoders.grid.position;
 
-import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.academiadecodigo.variachis.expertCoders.grid.Grid;
 
 import org.academiadecodigo.variachis.expertCoders.interfaces.Collidable;
-import org.academiadecodigo.variachis.expertCoders.item.Item;
+
+import javax.swing.plaf.basic.BasicSplitPaneUI;
 
 public class Position implements Collidable {
 
@@ -12,8 +12,13 @@ public class Position implements Collidable {
     private int col;
     private Grid grid;
     private boolean collided;
-    Item item;
 
+
+    @Override
+    public String toString() {
+        return ("Col: " + col
+                + " Row: " + row + "");
+    }
 
     public Position(int col, int row, Grid grid) {
 
@@ -23,14 +28,17 @@ public class Position implements Collidable {
     }
 
 
-    //
+    public enum Direction {
+        DOWN,
+        RIGHT,
+        LEFT;
+    }
 
     //INHERITED METHODS FROM INTERFACE
 
 
     public void setRowZero() {
         this.row = 0;
-
     }
 
     public void setCol() {
@@ -51,52 +59,54 @@ public class Position implements Collidable {
     public boolean checkCollision(Position position) {
 
         return this.equals(position);
-
     }
 
     @Override
     public void draw() {
-
-        grid.draw();
-
         System.out.println("col: " + col + " row: " + row);
 
     }
 
-    //TODO: FIX THE WRONG METHODS. MOVE DOWN ALREADY FIXED
-    public void moveRight() {
+    public void move(Direction direction) {
+        switch (direction) {
+            case LEFT:
+                moveLeft();
+                return;
+            case RIGHT:
+                moveRight();
+                return;
+            case DOWN:
+                moveDown();
+                return;
+        }
+    }
 
+    public void moveRight() {
         col++;
     }
 
     public void moveLeft() {
-
         col--;
     }
 
-    //move down (fixed)
     public void moveDown() {
-
-
         row++;
-
     }
+
 
     public boolean equals(Position position) {
 
         if (this.row != position.row || this.col != position.col) {
             return false;
         }
-
         return true;
     }
+
 
     public int getRow() {
         return row;
     }
 
-    public int getCol() {
-        return col;
-    }
+
 
 }

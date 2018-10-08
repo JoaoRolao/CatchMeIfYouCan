@@ -10,27 +10,28 @@ import java.awt.*;
 public class Item extends AbstractCollidable {
 
     private Grid grid;
-    private Position position;
     private Type type;
     private boolean colided;
     private Picture picture = new Picture();
 
 
-    public Item(Type type) {
+    public void drawtest(){
+        System.out.println("Col/Row: " + this.getPosition() + " .");
+    }
+
+    public Item(Type type, Position position) {
+        super(position);
         this.type = type;
     }
-    //Enum type inner class
 
+
+    //Enum type inner class
     public enum Type {
         CAP,
         PEN,
         MAC,
         POLY,
-        COCK
-
-
-        //cherries - > if you catch the cherrie you leave the game to the bathroom farting all over the map
-
+        COCK;
     }
 
     public void setColided(boolean colided) {
@@ -47,16 +48,24 @@ public class Item extends AbstractCollidable {
         return Type.values()[randomType];
     }
 
-    public void move() {
-        System.out.println("moving item");
-        this.position.moveDown();
+    @Override
+    public void move(Position.Direction direction) {
+        super.move(direction);
     }
+
+
 
     @Override
     public boolean checkCollision(Position position) {
-        return this.position.checkCollision(position);
+        return false;
     }
 
+    public void recycle(){
+        this.setColided(false);
+        this.getPosition().setRowZero();
+        this.getPosition().setCol();
+
+    }
     @Override
     public void draw() {
        //position.draw();
@@ -96,21 +105,12 @@ public class Item extends AbstractCollidable {
 
 
     //SETTERS AND GETTER
-    public void setPosition(Position position) {
-        this.position = position;
-    }
-
-    public Position getPosition() {
-        return position;
-    }
 
     public Type getType() {
         return type;
     }
 
-    public void setGrid(Grid grid) {
-        this.grid = grid;
-    }
+
 
 
 }
