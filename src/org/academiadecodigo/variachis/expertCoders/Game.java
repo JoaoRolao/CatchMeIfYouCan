@@ -25,7 +25,10 @@ public class Game {
     public void addItemsToList() {
         int items = 0;
         while (items != 50) {
-            allItems.add(itemFactory.getItem());
+            Item item = itemFactory.getItem();
+            item.setPosition(PositionFactory.getItemPosition(grid));
+            item.setGrid(grid);
+            allItems.add(item);
             items++;
         }
     }
@@ -46,16 +49,11 @@ public class Game {
         player.setGrid(grid);
         player.draw();
 
+
         //adding items to the list and giving them a position
         addItemsToList();
         for (int i = 0; i < 10; i++) {
             activeItems.add(allItems.remove(i));
-        }
-
-        for (Item item : allItems) {
-            item.setPosition(PositionFactory.getItemPosition(grid));
-            System.out.println("ALL ITEMS DRAW");
-            item.draw();
         }
 
     }
@@ -82,11 +80,12 @@ public class Game {
 
 
             for (Item item : activeItems) {
-
+                System.out.println("ENTERED FOR (FIRST FOR)");
                 //draw the items and move them down
+                item.setGrid(grid);
                 item.draw();
 
-                //item.move();
+                item.move();
 
                 System.out.println("ACTIVE ITEMS DRAW");
 

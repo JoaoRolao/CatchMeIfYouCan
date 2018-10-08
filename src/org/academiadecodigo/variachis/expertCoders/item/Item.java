@@ -48,8 +48,10 @@ public class Item extends AbstractCollidable {
     }
 
     public void move() {
-        System.out.println("moving item");
+        System.out.println("\t\t\tmoving item");
+        System.out.println(position);
         this.position.moveDown();
+        picture.translate(0, 5); //TODO:FIX PROBLEM HERE
     }
 
     @Override
@@ -59,15 +61,17 @@ public class Item extends AbstractCollidable {
 
     @Override
     public void draw() {
-       //position.draw();
+        //position.draw();
+
+        System.out.println("\t\t\tDRAW");
 
         switch (random()) {
             case CAP:
                 setCapIcon();
                 break;
             case MAC:
-               setCapIcon();
-               break;
+                setCapIcon();
+                break;
             case PEN:
                 setCapIcon();
                 break;
@@ -87,11 +91,13 @@ public class Item extends AbstractCollidable {
 
     public void setCapIcon() {
 
+        int randomCol;
+        randomCol = (int) Math.floor(Math.random() * grid.getCols());
+
         picture.load("beer.png");
         picture.draw();
-        picture.translate(40, 40); //TODO:FIX PROBLEM HERE
-        //move();
-        picture.delete();
+      //  move();
+        //picture.delete();
     }
 
 

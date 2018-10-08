@@ -12,7 +12,6 @@ public class Position implements Collidable {
     private int col;
     private Grid grid;
     private boolean collided;
-    Item item;
 
 
     public Position(int col, int row, Grid grid) {
@@ -78,7 +77,7 @@ public class Position implements Collidable {
     public void moveDown() {
 
 
-        row++;
+        this.row = row++;
 
     }
 
