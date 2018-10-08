@@ -24,10 +24,10 @@ public class Item extends AbstractCollidable {
     //Enum type inner class
     public enum Type {
         CAP,
-        PEN,
-        MAC,
+        OTHER,
+        BEER,
         POLY,
-        COCK;
+        TREE;
     }
 
     public void setColided(boolean colided) {
@@ -53,7 +53,7 @@ public class Item extends AbstractCollidable {
 
     @Override
     public boolean checkCollision(Position position) {
-        return false;
+        return this.getPosition().equals(position);
     }
 
     public void recycle(){
@@ -70,13 +70,13 @@ public class Item extends AbstractCollidable {
             case CAP:
                 setCapIcon();
                 break;
-            case MAC:
+            case BEER:
                setCapIcon();
                break;
-            case PEN:
+            case TREE:
                 setCapIcon();
                 break;
-            case COCK:
+            case OTHER:
                 setCapIcon();
                 break;
             case POLY:

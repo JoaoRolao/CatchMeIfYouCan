@@ -62,18 +62,22 @@ public class Game {
                 if (player.checkCollision(item.getPosition())) {
                     System.out.println("COLIDEDDDDD with player");
                     item.setColided(true);
-                    gameOver = true;
+                    player.beingHit(item);
                     //TODO: PLAYER INTERACTION WITH ITEM TYPE
                 }
 
                 if (grid.checkCollision(item.getPosition())) {
-                    System.out.println("colided with grid");
                     item.setColided(true);
                     //gameOver = true;
                 }
                 if (item.isColided()) {
                     itemRecycle(item);
                     item.recycle();
+                }
+                if (player.getKnowledge() <= 0 || player.getFun() <= 0){
+                    System.out.println("You loose with : " + player.getFun() + " Fun, and with : " + player.getKnowledge() + " Knowlege.");
+                    gameOver = true;
+
                 }
             }
 

@@ -90,17 +90,13 @@ public class Position implements Collidable {
 
     public boolean equals(Position position) {
 
-        if (this.row != position.row || this.col != position.col) {
-            return false;
-        }
-        return true;
+        return (this.row != position.row || this.col != position.col);
     }
 
 
     public int getRow() {
         return row;
     }
-
 
 
 }
