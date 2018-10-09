@@ -31,7 +31,6 @@ public class Player extends AbstractCollidable {
     @Override
     public void draw() {
         playerPicture.draw();
-
     }
 
 

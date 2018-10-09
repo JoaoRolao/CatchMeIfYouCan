@@ -66,9 +66,11 @@ public class Game {
 
         while (!gameOver) {
 
+
             for (Item item : activeItems) {
                 item.draw();
-                item.move(Position.Direction.RIGHT);
+                item.move(Position.Direction.DOWN);
+
 
                 if (player.checkCollision(item.getPosition())) {
                     System.out.println("COLIDEDDDDD with player");

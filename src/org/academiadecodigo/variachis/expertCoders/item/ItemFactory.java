@@ -10,5 +10,4 @@ public class ItemFactory {
         return new Item(Item.random(), PositionFactory.getItemPosition(grid));
     }
 
-
 }

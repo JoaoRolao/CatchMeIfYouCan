@@ -85,11 +85,25 @@ public class Item extends AbstractCollidable {
                 setPolyIcon();
                 break;
         }
+
     }
 
 
+    //*********************DRAW THE CAP ICON**********************
+
 
     public void setCapIcon() {
+
+        while (true) {
+            picture.load("cap.png");
+            picture.draw();
+
+
+            picture.translate(0, 1);
+
+        }
+
+
         picture.load("cap.png");
         picture.draw();
     }
