@@ -94,18 +94,18 @@ public class Item extends AbstractCollidable {
 
     public void setCapIcon() {
 
-        while (true) {
+       // while (true) {
             picture.load("cap.png");
             picture.draw();
-            picture.translate(0, 1);
-
+            //picture.translate(0, 1);
+/*
             if (picture.getMaxX() > grid.getRows()){
 
                 picture.delete();
                 break;
 
             }
-        }
+        }*/
 
 
         picture.load("cap.png");

@@ -45,11 +45,13 @@ public class Game {
 
         PlayerKeyboard playerKeyboard = new PlayerKeyboard();
         playerKeyboard.setPlayer(player);
-
+        playerKeyboard.moves();
         //adding items to the list and giving them a position
         addItemsToList();
         //show player
         player.draw();
+
+
     }
 
 
