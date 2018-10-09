@@ -93,11 +93,16 @@ public class Item extends AbstractCollidable {
 
     public void setCapIcon() {
 
+        while (true) {
+            picture.load("cap.png");
+            picture.draw();
 
-        picture.load("cap.png");
-        picture.draw();
-        //move(Position.Direction.DOWN);
-        //picture.delete();
+
+            picture.translate(0, 1);
+
+        }
+
+
     }
 
     public void setAbstractIcon() {

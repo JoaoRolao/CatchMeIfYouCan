@@ -3,6 +3,7 @@ package org.academiadecodigo.variachis.expertCoders.grid.position;
 import org.academiadecodigo.variachis.expertCoders.grid.Grid;
 
 import org.academiadecodigo.variachis.expertCoders.interfaces.Collidable;
+import org.academiadecodigo.variachis.expertCoders.item.Item;
 
 import javax.swing.plaf.basic.BasicSplitPaneUI;
 
@@ -55,13 +56,13 @@ public class Position implements Collidable {
         switch (direction) {
             case LEFT:
                 moveLeft();
-                return;
+                break;
             case RIGHT:
                 moveRight();
-                return;
+                break;
             case DOWN:
                 moveDown();
-                return;
+                break;
         }
     }
 
@@ -74,7 +75,8 @@ public class Position implements Collidable {
     }
 
     public void moveDown() {
-        this.row++;
+
+        this.row --;
     }
 
 
