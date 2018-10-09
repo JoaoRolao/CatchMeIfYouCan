@@ -45,4 +45,12 @@ public class Grid implements Collidable { //implements the -->Collidable interfa
     public boolean checkCollision(Position position) {
         return (position.getRow() == rows);
     }
+
+    public int getWidth(){
+        return this.field.getWidth();
+    }
+
+    public int getHeigth(){
+        return this.field.getHeight();
+    }
 }

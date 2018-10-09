@@ -96,10 +96,14 @@ public class Item extends AbstractCollidable {
         while (true) {
             picture.load("cap.png");
             picture.draw();
-
-
             picture.translate(0, 1);
 
+            if (picture.getMaxX() > grid.getRows()){
+
+                picture.delete();
+                break;
+
+            }
         }
 
 
