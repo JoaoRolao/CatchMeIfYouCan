@@ -2,6 +2,7 @@ package org.academiadecodigo.variachis.expertCoders;
 
 import java.util.LinkedList;
 
+import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.academiadecodigo.variachis.expertCoders.grid.Grid;
 import org.academiadecodigo.variachis.expertCoders.grid.position.Position;
@@ -9,6 +10,7 @@ import org.academiadecodigo.variachis.expertCoders.grid.position.PositionFactory
 import org.academiadecodigo.variachis.expertCoders.item.Item;
 import org.academiadecodigo.variachis.expertCoders.item.ItemFactory;
 import org.academiadecodigo.variachis.expertCoders.player.Player;
+import org.academiadecodigo.variachis.expertCoders.player.PlayerKeyboard;
 
 public class Game {
     private LinkedList<Item> allItems = new LinkedList<>();
@@ -36,11 +38,13 @@ public class Game {
 
         GameLevel levelOne = new GameLevel(PositionFactory.getLevelPosition(grid));
         levelOne.setGrid(grid);
-        levelOne.setGrid(grid);
         levelOne.draw();
 
         //instantiate the player in the grid with a position
         this.player = new Player(PositionFactory.getPlayerPosition(grid));
+
+        PlayerKeyboard playerKeyboard = new PlayerKeyboard();
+        playerKeyboard.setPlayer(player);
 
         //adding items to the list and giving them a position
         addItemsToList();
@@ -61,9 +65,6 @@ public class Game {
 
 
         while (!gameOver) {
-            //TODO: IF PLAYER PRESS KEY PLAYER.MOVE()
-            player.move(Position.Direction.LEFT);
-            player.move(Position.Direction.RIGHT);
 
 
             for (Item item : activeItems) {
@@ -75,6 +76,7 @@ public class Game {
                     System.out.println("COLIDEDDDDD with player");
                     item.setColided(true);
                     player.beingHit(item);
+                    continue;
                 }
 
                 if (grid.checkCollision(item.getPosition())) {
