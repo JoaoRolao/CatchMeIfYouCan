@@ -63,10 +63,11 @@ public class Item extends AbstractCollidable {
 
     }
 
+
+
+    //*********************DRAW THE CAP ICON**********************
     @Override
     public void draw() {
-        //position.draw();
-
         switch (random()) {
             case CAP:
                 setCapIcon();
@@ -84,20 +85,13 @@ public class Item extends AbstractCollidable {
                 setPolyIcon();
                 break;
         }
-
     }
 
 
-    //*********************DRAW THE CAP ICON**********************
-
 
     public void setCapIcon() {
-
-
         picture.load("cap.png");
         picture.draw();
-        //move(Position.Direction.DOWN);
-        //picture.delete();
     }
 
     public void setAbstractIcon() {
@@ -117,7 +111,6 @@ public class Item extends AbstractCollidable {
 
     public void setBeerIcon() {
         picture.load("beer.png");
-
         picture.draw();
     }
 

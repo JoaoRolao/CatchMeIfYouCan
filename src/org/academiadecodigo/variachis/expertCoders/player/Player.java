@@ -13,8 +13,8 @@ public class Player extends AbstractCollidable {
 
 
     //properties of the player
-    private int knowledge = 20; //status <-
-    private int fun = 20;  //status <-
+    private int knowledge = 10; //status <-
+    private int fun = 10;  //status <-
     private Picture playerPicture;
 
 
@@ -61,7 +61,9 @@ public class Player extends AbstractCollidable {
                 fun -= 5;
                 break;
             case POLY:
-                System.out.println("POLY");
+                //playerPicture.load("");
+                //playerPicture.load("");
+                //playerPicture.load("");
                 break;
         }
     }

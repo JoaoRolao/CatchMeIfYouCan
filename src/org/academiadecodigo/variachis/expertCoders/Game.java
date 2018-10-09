@@ -36,7 +36,6 @@ public class Game {
 
         GameLevel levelOne = new GameLevel(PositionFactory.getLevelPosition(grid));
         levelOne.setGrid(grid);
-        levelOne.setGrid(grid);
         levelOne.draw();
 
         //instantiate the player in the grid with a position
@@ -73,6 +72,7 @@ public class Game {
                     System.out.println("COLIDEDDDDD with player");
                     item.setColided(true);
                     player.beingHit(item);
+                    continue;
                 }
 
                 if (grid.checkCollision(item.getPosition())) {
