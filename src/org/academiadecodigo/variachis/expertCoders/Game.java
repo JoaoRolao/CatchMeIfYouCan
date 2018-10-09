@@ -31,10 +31,12 @@ public class Game {
 
     public void gameInit() {
         //game knows the grid (instantiate grid) and draw the grid
-        this.grid = new Grid(800, 600);
+        this.grid = new Grid(80, 60);
         grid.draw();
 
         GameLevel levelOne = new GameLevel(PositionFactory.getLevelPosition(grid));
+        levelOne.setGrid(grid);
+        levelOne.setGrid(grid);
         levelOne.draw();
 
         //instantiate the player in the grid with a position
@@ -42,7 +44,6 @@ public class Game {
 
         //adding items to the list and giving them a position
         addItemsToList();
-
         //show player
         player.draw();
     }
@@ -66,23 +67,26 @@ public class Game {
 
             for (Item item : activeItems) {
                 item.draw();
-                item.move(Position.Direction.DOWN);
+                item.move(Position.Direction.RIGHT);
 
                 if (player.checkCollision(item.getPosition())) {
                     System.out.println("COLIDEDDDDD with player");
                     item.setColided(true);
-                    gameOver = true;
-                    //TODO: PLAYER INTERACTION WITH ITEM TYPE
+                    player.beingHit(item);
                 }
 
                 if (grid.checkCollision(item.getPosition())) {
-                    System.out.println("colided with grid");
                     item.setColided(true);
                     //gameOver = true;
                 }
                 if (item.isColided()) {
                     itemRecycle(item);
                     item.recycle();
+                }
+                if (player.getKnowledge() <= 0 || player.getFun() <= 0){
+                    System.out.println("You loose with : " + player.getFun() + " Fun, and with : " + player.getKnowledge() + " Knowlege.");
+                    gameOver = true;
+
                 }
             }
 

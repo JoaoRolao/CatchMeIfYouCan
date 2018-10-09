@@ -12,22 +12,23 @@ public class Item extends AbstractCollidable {
     private Grid grid;
     private Type type;
     private boolean colided;
-    private Picture picture = new Picture();
+    private Picture picture;
 
 
     public Item(Type type, Position position) {
         super(position);
         this.type = type;
+        picture = new Picture(super.getPosition().getCol(), super.getPosition().getRow() + 10, "cap.png");
     }
 
 
     //Enum type inner class
     public enum Type {
         CAP,
-        PEN,
-        MAC,
+        ABSTRACTION,
+        BEER,
         POLY,
-        COCK;
+        TREE;
     }
 
     public void setColided(boolean colided) {
@@ -50,33 +51,33 @@ public class Item extends AbstractCollidable {
     }
 
 
-
     @Override
     public boolean checkCollision(Position position) {
-        return false;
+        return this.getPosition().equals(position);
     }
 
-    public void recycle(){
+    public void recycle() {
         this.setColided(false);
         this.getPosition().setRowZero();
         this.getPosition().setCol();
 
     }
+
     @Override
     public void draw() {
-       //position.draw();
+        //position.draw();
 
         switch (random()) {
             case CAP:
                 setCapIcon();
                 break;
-            case MAC:
-               setAbstractIcon();
-               break;
-            case PEN:
+            case ABSTRACTION:
+                setAbstractIcon();
+                break;
+            case BEER:
                 setBeerIcon();
                 break;
-            case COCK:
+            case TREE:
                 setInheritanceIcon();
                 break;
             case POLY:
@@ -92,39 +93,40 @@ public class Item extends AbstractCollidable {
 
     public void setCapIcon() {
 
+
         picture.load("cap.png");
         picture.draw();
-        move(Position.Direction.DOWN);
+        //move(Position.Direction.DOWN);
         //picture.delete();
     }
 
-    public void setAbstractIcon(){
+    public void setAbstractIcon() {
         picture.load("abstraction.png");
         picture.draw();
     }
 
-    public void setPolyIcon(){
+    public void setPolyIcon() {
         picture.load("polymorphism.png");
         picture.draw();
     }
 
-    public void setInheritanceIcon(){
+    public void setInheritanceIcon() {
         picture.load("inheritance.png");
         picture.draw();
     }
 
-    public void setBeerIcon(){
+    public void setBeerIcon() {
         picture.load("beer.png");
+
         picture.draw();
     }
+
 
     //SETTERS AND GETTER
 
     public Type getType() {
         return type;
     }
-
-
 
 
 }

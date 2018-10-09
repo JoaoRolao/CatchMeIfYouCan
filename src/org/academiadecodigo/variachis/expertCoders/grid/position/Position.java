@@ -11,7 +11,6 @@ public class Position implements Collidable {
     private int row;
     private int col;
     private Grid grid;
-    private boolean collided;
 
 
     public Position(int col, int row, Grid grid) {
@@ -39,15 +38,6 @@ public class Position implements Collidable {
         this.col = (int) (Math.random() * grid.getCols());
     }
 
-    public boolean isCollided() {
-        return collided;
-    }
-
-    public void setCollided(boolean collided) {
-        System.out.println("seted pos colided");
-        this.collided = collided;
-    }
-
 
     @Override
     public boolean checkCollision(Position position) {
@@ -57,7 +47,7 @@ public class Position implements Collidable {
 
     @Override
     public void draw() {
-        System.out.println("col: " + col + " row: " + row);
+
 
     }
 
@@ -76,24 +66,21 @@ public class Position implements Collidable {
     }
 
     public void moveRight() {
-        col++;
+        this.col++;
     }
 
     public void moveLeft() {
-        col--;
+        this.col--;
     }
 
     public void moveDown() {
-        row++;
+        this.row++;
     }
 
 
     public boolean equals(Position position) {
 
-        if (this.row != position.row || this.col != position.col) {
-            return false;
-        }
-        return true;
+        return (this.row != position.row || this.col != position.col);
     }
 
 

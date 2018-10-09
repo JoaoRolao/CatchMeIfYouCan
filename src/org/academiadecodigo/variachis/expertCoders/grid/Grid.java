@@ -9,10 +9,11 @@ import org.academiadecodigo.variachis.expertCoders.player.Player;
 public class Grid implements Collidable { //implements the -->Collidable interface (-->Drawable)
 
     //properties of the grid
-    private final int PADDING = 10;
+    public final int PADDING = 10;
     private int rows;   //grid has rows
     private int cols;   //grid has columns
     private Rectangle field; //defines the size of the game field
+    public final int CELLSIZE = 10;
 
 
     //constructor -> initializing the properties -> delegating to Position since Position HAS-A grid
@@ -36,12 +37,12 @@ public class Grid implements Collidable { //implements the -->Collidable interfa
     @Override
     public void draw() {
 
-        field = new Rectangle(PADDING, PADDING, cols, rows);
+        field = new Rectangle(PADDING, PADDING, CELLSIZE * cols, CELLSIZE * rows);
         field.draw();
     }
 
     @Override
     public boolean checkCollision(Position position) {
-        return (position.getRow() == rows); // TODO: 08/10/2018
+        return (position.getRow() == rows);
     }
 }
