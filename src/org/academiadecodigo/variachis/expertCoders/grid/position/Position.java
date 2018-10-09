@@ -98,5 +98,7 @@ public class Position implements Collidable {
         return row;
     }
 
-
+    public int getCol() {
+        return col;
+    }
 }

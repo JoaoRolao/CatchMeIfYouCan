@@ -9,29 +9,26 @@ import org.academiadecodigo.variachis.expertCoders.interfaces.Drawable;
 public class GameLevel implements Drawable {
 
     private String actualLevel;
-    private Grid grid;
     private Picture picture = new Picture();
+    private Position position;
     
     
-    public GameLevel() {
-        
-        actualLevel = "";
+    public GameLevel(Position position) {
+        this.position = position;
+        actualLevel = "levelOne";
 
-    }
-
-    public void setGrid(Grid grid) {
-        this.grid = grid;
     }
 
     @Override
     public void draw() {
 
         checkLevel(actualLevel);
-        picture.translate(10,10); //fills the 800x600 resolution, translated cell value to exactly fill the limit border
+        //picture.translate(10,10); //fills the 800x600 resolution, translated cell value to exactly fill the limit border
         picture.draw();
         
     }
 
+    //use to change the level img
     public void setActualLevel(String actualLevel) {
         this.actualLevel = actualLevel;
     }
@@ -51,10 +48,7 @@ public class GameLevel implements Drawable {
 
         System.out.println("Entered level 1");
 
-        //instantiating new picture object -> loading image from resources.
-        
         picture.load("levelOne.jpg");
-        //picture.translate(grid.getCell() - grid.PADDING,grid.getCell() - grid.PADDING); //fills the 800x600 resolution, translated cell value to exactly fill the limit border
         picture.draw();
 
 

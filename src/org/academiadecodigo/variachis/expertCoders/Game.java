@@ -29,14 +29,21 @@ public class Game {
 
 
     public void gameInit() {
-        this.grid = new Grid(200, 200);
+        //game knows the grid (instantiate grid) and draw the grid
+        this.grid = new Grid(800, 600);
+        grid.draw();
+
+        GameLevel levelOne = new GameLevel(PositionFactory.getLevelPosition(grid));
+        levelOne.draw();
+
+        //instantiate the player in the grid with a position
         this.player = new Player(PositionFactory.getPlayerPosition(grid));
 
         //adding items to the list and giving them a position
         addItemsToList();
 
+        //show player
         player.draw();
-        grid.draw();
     }
 
 
@@ -57,6 +64,7 @@ public class Game {
             player.move(Position.Direction.RIGHT);
 
             for (Item item : activeItems) {
+                item.draw();
                 item.move(Position.Direction.DOWN);
 
                 if (player.checkCollision(item.getPosition())) {
@@ -85,16 +93,6 @@ public class Game {
 
     }
 
-/*
-    //recycle items
-    for (int i = 0; i < 6; i++) {
-        activeItems.add(allItems.remove(i));
-    }
-
-    for (int i = 0; i < 6; i++) {
-        allItems.add(activeItems.remove(i));
-    }
-*/
 
 
 }
