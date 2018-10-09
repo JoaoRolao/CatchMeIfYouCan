@@ -71,16 +71,16 @@ public class Item extends AbstractCollidable {
                 setCapIcon();
                 break;
             case MAC:
-               setCapIcon();
+               setAbstractIcon();
                break;
             case PEN:
-                setCapIcon();
+                setBeerIcon();
                 break;
             case COCK:
-                setCapIcon();
+                setInheritanceIcon();
                 break;
             case POLY:
-                setCapIcon();
+                setPolyIcon();
                 break;
         }
 
@@ -92,13 +92,31 @@ public class Item extends AbstractCollidable {
 
     public void setCapIcon() {
 
-        picture.load("beer.png");
+        picture.load("cap.png");
         picture.draw();
-        picture.translate(40, 40); //TODO:FIX PROBLEM HERE
-        //move();
-        picture.delete();
+        move(Position.Direction.DOWN);
+        //picture.delete();
     }
 
+    public void setAbstractIcon(){
+        picture.load("abstraction.png");
+        picture.draw();
+    }
+
+    public void setPolyIcon(){
+        picture.load("polymorphism.png");
+        picture.draw();
+    }
+
+    public void setInheritanceIcon(){
+        picture.load("inheritance.png");
+        picture.draw();
+    }
+
+    public void setBeerIcon(){
+        picture.load("beer.png");
+        picture.draw();
+    }
 
     //SETTERS AND GETTER
 
