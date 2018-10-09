@@ -9,7 +9,7 @@ import org.academiadecodigo.variachis.expertCoders.player.Player;
 public class Grid implements Collidable { //implements the -->Collidable interface (-->Drawable)
 
     //properties of the grid
-    private final int PADDING = 15;
+    private final int PADDING = 10;
     private int rows;   //grid has rows
     private int cols;   //grid has columns
     private Rectangle field; //defines the size of the game field
