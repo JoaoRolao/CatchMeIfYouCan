@@ -11,6 +11,8 @@ public class Main {
         Game game = new Game();
 
 
+
+
         game.gameInit();
         game.gameStart();
 
