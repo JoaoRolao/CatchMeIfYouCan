@@ -31,7 +31,7 @@ public class Position implements Collidable {
     //INHERITED METHODS FROM INTERFACE
 
 
-    public void setRowZero() {
+    public void         setRowZero() {
         this.row = 0;
     }
 

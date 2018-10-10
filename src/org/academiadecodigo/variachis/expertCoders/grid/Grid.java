@@ -43,7 +43,7 @@ public class Grid implements Collidable { //implements the -->Collidable interfa
 
     @Override
     public boolean checkCollision(Position position) {
-        return (position.getRow() == rows);
+        return (position.getRow() == rows - 4);
     }
 
     public int getWidth() {

@@ -21,7 +21,7 @@ public class PositionFactory {
 
     public static Position getItemPosition(Grid grid) {
         int randomCol = (int) (Math.random() * (grid.getCols() * grid.CELLSIZE));
-        return new Position(randomCol, 0, grid);
+        return new Position(randomCol - Grid.CELLSIZE, 0, grid);
     }
 
     public static Position getLevelPosition(Grid grid) {

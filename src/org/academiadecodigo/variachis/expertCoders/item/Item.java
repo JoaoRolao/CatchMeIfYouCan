@@ -103,21 +103,25 @@ public class Item extends AbstractCollidable {
     public void setAbstractIcon() {
         picture.load("abstraction.png");
         picture.draw();
+        picture.translate(0, Grid.CELLSIZE);
     }
 
     public void setPolyIcon() {
         picture.load("polymorphism.png");
         picture.draw();
+        picture.translate(0, Grid.CELLSIZE);
     }
 
     public void setInheritanceIcon() {
         picture.load("inheritance.png");
         picture.draw();
+        picture.translate(0, Grid.CELLSIZE);
     }
 
     public void setBeerIcon() {
         picture.load("beer.png");
         picture.draw();
+        picture.translate(0, Grid.CELLSIZE);
     }
 
 
@@ -128,4 +132,7 @@ public class Item extends AbstractCollidable {
     }
 
 
+    public Picture getPicture() {
+        return picture;
+    }
 }

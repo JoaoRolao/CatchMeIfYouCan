@@ -24,11 +24,11 @@ public class Game implements KeyboardHandler {
 
 
     public void addItemsToList() {
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 10; i++) {
             allItems.add(ItemFactory.getItem(grid));
         }
 
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 5; i++) {
             activeItems.add(allItems.remove(i));
         }
     }
@@ -76,6 +76,8 @@ public class Game implements KeyboardHandler {
 
                 item.move(Position.Direction.DOWN);
                 item.draw();
+
+
 
                 if (player.checkCollision(item.getPosition())) {
                     System.out.println("COLIDEDDDDD with player");
