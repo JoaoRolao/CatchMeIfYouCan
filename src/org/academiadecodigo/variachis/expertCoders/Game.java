@@ -21,11 +21,11 @@ public class Game {
 
 
     public void addItemsToList() {
-        for (int i = 0; i < 30; i++) {
+        for (int i = 0; i < 3; i++) {
             allItems.add(ItemFactory.getItem(grid));
         }
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 2; i++) {
             activeItems.add(allItems.remove(i));
         }
     }
@@ -55,11 +55,10 @@ public class Game {
     }
 
 
-    public Item itemRecycle(Item item) {
+    public void itemRecycle(Item item) {
 
         allItems.add(item);
-        Item itemNew = allItems.poll();
-        return itemNew;
+       // activeItems.add(allItems.poll());
     }
 
 
@@ -67,33 +66,40 @@ public class Game {
 
 
         while (!gameOver) {
-
-
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             for (Item item : activeItems) {
-                item.draw();
-                item.move(Position.Direction.DOWN);
 
+                item.move(Position.Direction.DOWN);
+                item.draw();
 
                 if (player.checkCollision(item.getPosition())) {
                     System.out.println("COLIDEDDDDD with player");
                     item.setColided(true);
                     player.beingHit(item);
-                    continue;
                 }
 
                 if (grid.checkCollision(item.getPosition())) {
+                    System.out.println("GRIDDD COLIDE CHECKER");
                     item.setColided(true);
                     //gameOver = true;
                 }
+
                 if (item.isColided()) {
+                    System.out.println("TESTESTES");
                     itemRecycle(item);
                     item.recycle();
                 }
+
                 if (player.getKnowledge() <= 0 || player.getFun() <= 0){
                     System.out.println("You loose with : " + player.getFun() + " Fun, and with : " + player.getKnowledge() + " Knowlege.");
                     gameOver = true;
 
                 }
+
             }
 
         }

@@ -6,7 +6,7 @@ import org.academiadecodigo.variachis.expertCoders.grid.position.Position;
 import org.academiadecodigo.variachis.expertCoders.interfaces.Collidable;
 import org.academiadecodigo.variachis.expertCoders.grid.position.Position.Direction;
 
-public class AbstractCollidable implements Collidable {
+public abstract class AbstractCollidable implements Collidable {
 
 
     private Position position;
@@ -21,17 +21,11 @@ public class AbstractCollidable implements Collidable {
         return position;
     }
 
-    @Override
-    public void draw() {
-    }
+    public abstract void draw();
 
     protected void move(Direction direction) {
         position.move(direction);
     }
 
-    @Override
-    public boolean checkCollision(Position position) {
-        return false;
-    }
 }
 

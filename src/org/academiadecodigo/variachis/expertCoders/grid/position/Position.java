@@ -76,13 +76,13 @@ public class Position implements Collidable {
 
     public void moveDown() {
 
-        this.row --;
+        this.row ++;
     }
 
 
     public boolean equals(Position position) {
 
-        return (this.row != position.row || this.col != position.col);
+        return (this.row == position.row && this.col == position.col);
     }
 
 

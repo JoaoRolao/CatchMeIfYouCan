@@ -9,9 +9,8 @@ import java.awt.*;
 
 public class Item extends AbstractCollidable {
 
-    private Grid grid;
     private Type type;
-    private boolean colided;
+    private boolean colided = false;
     private Picture picture;
 
 
@@ -57,18 +56,21 @@ public class Item extends AbstractCollidable {
     }
 
     public void recycle() {
-        this.setColided(false);
+
         this.getPosition().setRowZero();
         this.getPosition().setCol();
+        this.picture.delete();
+        this.picture.translate(0, - Grid.rows*Grid.CELLSIZE);
+        this.setColided(false);
 
     }
-
 
 
     //*********************DRAW THE CAP ICON**********************
     @Override
     public void draw() {
-        switch (random()) {
+
+        switch (this.type) {
             case CAP:
                 setCapIcon();
                 break;
@@ -93,23 +95,9 @@ public class Item extends AbstractCollidable {
 
 
     public void setCapIcon() {
-
-       // while (true) {
-            picture.load("cap.png");
-            picture.draw();
-            //picture.translate(0, 1);
-/*
-            if (picture.getMaxX() > grid.getRows()){
-
-                picture.delete();
-                break;
-
-            }
-        }*/
-
-
         picture.load("cap.png");
         picture.draw();
+        picture.translate(0, Grid.CELLSIZE);
     }
 
     public void setAbstractIcon() {
