@@ -20,7 +20,8 @@ public class Player extends AbstractCollidable {
 
     public Player(Position position) {
         super(position);
-        playerPicture = new Picture(super.getPosition().getCol(), super.getPosition().getRow() - 100, "playerTest.jpg");
+        playerPicture = new Picture(super.getPosition().getCol() - 100 , super.getPosition().getRow() - 200, "filipe.png");
+
     }
 
     @Override
@@ -31,6 +32,7 @@ public class Player extends AbstractCollidable {
     @Override
     public void draw() {
         playerPicture.draw();
+        playerPicture.grow(-150,-150);
     }
 
 

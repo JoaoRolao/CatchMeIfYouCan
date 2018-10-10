@@ -43,13 +43,14 @@ public class Game {
         //instantiate the player in the grid with a position
         this.player = new Player(PositionFactory.getPlayerPosition(grid));
 
-        PlayerKeyboard playerKeyboard = new PlayerKeyboard();
-        playerKeyboard.setPlayer(player);
-        playerKeyboard.moves();
+        //PlayerKeyboard playerKeyboard = new PlayerKeyboard();
+        player.draw();
+        //playerKeyboard.setPlayer(player);
+        //playerKeyboard.moves();
         //adding items to the list and giving them a position
         addItemsToList();
         //show player
-        player.draw();
+
 
 
     }
