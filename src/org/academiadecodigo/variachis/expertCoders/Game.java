@@ -2,6 +2,9 @@ package org.academiadecodigo.variachis.expertCoders;
 
 import java.util.LinkedList;
 
+import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
+import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
+import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.academiadecodigo.variachis.expertCoders.grid.Grid;
@@ -12,7 +15,7 @@ import org.academiadecodigo.variachis.expertCoders.item.ItemFactory;
 import org.academiadecodigo.variachis.expertCoders.player.Player;
 import org.academiadecodigo.variachis.expertCoders.player.PlayerKeyboard;
 
-public class Game {
+public class Game implements KeyboardHandler {
     private LinkedList<Item> allItems = new LinkedList<>();
     private LinkedList<Item> activeItems = new LinkedList<>();
     private Player player;
@@ -35,6 +38,7 @@ public class Game {
         //game knows the grid (instantiate grid) and draw the grid
         this.grid = new Grid(80, 60);
         grid.draw();
+        keyboardInit();
 
         GameLevel levelOne = new GameLevel(PositionFactory.getLevelPosition(grid));
         levelOne.setGrid(grid);
@@ -43,13 +47,9 @@ public class Game {
         //instantiate the player in the grid with a position
         this.player = new Player(PositionFactory.getPlayerPosition(grid));
 
-        //PlayerKeyboard playerKeyboard = new PlayerKeyboard();
         player.draw();
-        //playerKeyboard.setPlayer(player);
-        //playerKeyboard.moves();
-        //adding items to the list and giving them a position
+
         addItemsToList();
-        //show player
 
 
 
@@ -107,7 +107,42 @@ public class Game {
 
     }
 
+    public void keyboardInit(){
+        Keyboard keyboard = new Keyboard(this);
 
+        KeyboardEvent moveRight = new KeyboardEvent();
+        moveRight.setKey(KeyboardEvent.KEY_RIGHT);
+        moveRight.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+
+        KeyboardEvent moveLeft = new KeyboardEvent();
+        moveLeft.setKey(KeyboardEvent.KEY_LEFT);
+        moveLeft.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+
+
+        keyboard.addEventListener(moveLeft);
+        keyboard.addEventListener(moveRight);
+    }
+
+    @Override
+    public void keyPressed(KeyboardEvent keyboardEvent) {
+        switch (keyboardEvent.getKey()){
+            case KeyboardEvent.KEY_RIGHT:
+                if(player.getPosition().getCol() + grid.PADDING < grid.getCols() * grid.CELLSIZE) {
+                    player.move(Position.Direction.RIGHT);
+                    player.getPlayerPicture().translate(grid.CELLSIZE, 0);
+                }
+                break;
+            case KeyboardEvent.KEY_LEFT:
+                player.move(Position.Direction.LEFT);
+                player.getPlayerPicture().translate(- grid.CELLSIZE, 0);
+                break;
+        }
+    }
+
+    @Override
+    public void keyReleased(KeyboardEvent keyboardEvent) {
+
+    }
 
 }
 

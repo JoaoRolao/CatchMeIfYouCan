@@ -24,6 +24,10 @@ public class Player extends AbstractCollidable {
 
     }
 
+    public Picture getPlayerPicture() {
+        return playerPicture;
+    }
+
     @Override
     public boolean checkCollision(Position position) {
         return super.getPosition().equals(position);
