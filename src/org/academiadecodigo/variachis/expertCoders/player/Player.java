@@ -1,26 +1,24 @@
 package org.academiadecodigo.variachis.expertCoders.player;
 
-import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
-import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
-import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.academiadecodigo.variachis.expertCoders.AbstractCollidable;
+import org.academiadecodigo.variachis.expertCoders.grid.Grid;
 import org.academiadecodigo.variachis.expertCoders.grid.position.Position;
 import org.academiadecodigo.variachis.expertCoders.item.Item;
 
-
 public class Player extends AbstractCollidable {
 
-
-    //properties of the player
-    private int knowledge = 10; //status <-
-    private int fun = 10;  //status <-
+    private int knowledge = 10;
+    private int fun = 10;
     private Picture playerPicture;
+    private Position[] positions = new Position[4]; // TODO: 11/10/2018  
 
 
     public Player(Position position) {
         super(position);
-        playerPicture = new Picture(super.getPosition().getCol() - 100 , super.getPosition().getRow() - 200, "filipe.png");
+        playerPicture = new Picture(super.getPosition().getCol() * Grid.CELLSIZE + Grid.PADDING,
+                super.getPosition().getRow() * Grid.CELLSIZE + Grid.PADDING,
+                "filipe.png");
 
     }
 
@@ -35,40 +33,36 @@ public class Player extends AbstractCollidable {
 
     @Override
     public void draw() {
+        playerPicture.translate(-playerPicture.getWidth(), -playerPicture.getHeight());
         playerPicture.draw();
-        playerPicture.grow(-150,-150);
+        //  playerPicture.grow(-150, -150);
     }
-
 
     @Override
     public void move(Position.Direction direction) {
         super.move(direction);
+        int dx = direction == Position.Direction.RIGHT ? 1 : -1;
+        int diff = playerPicture.getX() + dx > Grid.PADDING ? dx : 0; // TODO: 11/10/2018  
+
+        playerPicture.translate(diff * Grid.CELLSIZE, 0);
 
     }
-
 
     public void beingHit(Item item) {
         switch (item.getType()) {
             case CAP:
-                System.out.println("cap");
                 knowledge -= 5;
                 break;
             case BEER:
-                System.out.println("beer");
                 fun += 5;
                 break;
             case TREE:
-                System.out.println("tree");
                 knowledge += 5;
                 break;
             case ABSTRACTION:
-                System.out.println("other");
                 fun -= 5;
                 break;
             case POLY:
-                //playerPicture.load("");
-                //playerPicture.load("");
-                //playerPicture.load("");
                 break;
         }
     }
@@ -82,5 +76,19 @@ public class Player extends AbstractCollidable {
     }
 
 
+    public boolean isLeftOf(int cols) {
+        return getPosition().getCol() < cols;
+    }
+
+    public boolean isRightOf(int cols) {
+        return getPosition().getCol() > cols;
+    }
+
+    @Override
+    public String toString() {
+        return "Player{" +
+                "playerPicture=" + playerPicture +
+                '}';
+    }
 }
 

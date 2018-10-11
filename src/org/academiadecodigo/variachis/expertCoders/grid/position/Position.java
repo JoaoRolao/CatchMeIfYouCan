@@ -2,12 +2,8 @@ package org.academiadecodigo.variachis.expertCoders.grid.position;
 
 import org.academiadecodigo.variachis.expertCoders.grid.Grid;
 
-import org.academiadecodigo.variachis.expertCoders.interfaces.Collidable;
-import org.academiadecodigo.variachis.expertCoders.item.Item;
 
-import javax.swing.plaf.basic.BasicSplitPaneUI;
-
-public class Position implements Collidable {
+public class Position {
 
     private int row;
     private int col;
@@ -21,6 +17,9 @@ public class Position implements Collidable {
         this.grid = grid;
     }
 
+    public int getGridRows() {
+        return grid.getRows();
+    }
 
     public enum Direction {
         DOWN,
@@ -28,28 +27,12 @@ public class Position implements Collidable {
         LEFT;
     }
 
-    //INHERITED METHODS FROM INTERFACE
-
-
-    public void         setRowZero() {
+    public void setRowZero() {
         this.row = 0;
     }
 
     public void setCol() {
         this.col = (int) (Math.random() * grid.getCols());
-    }
-
-
-    @Override
-    public boolean checkCollision(Position position) {
-
-        return this.equals(position);
-    }
-
-    @Override
-    public void draw() {
-
-
     }
 
     public void move(Direction direction) {
@@ -66,19 +49,18 @@ public class Position implements Collidable {
         }
     }
 
-    public void moveRight() {
+    private void moveRight() {
         this.col++;
     }
 
-    public void moveLeft() {
+    private void moveLeft() {
         this.col--;
     }
 
-    public void moveDown() {
+    private void moveDown() {
 
-        this.row ++;
+        this.row++;
     }
-
 
     public boolean equals(Position position) {
 
@@ -92,5 +74,13 @@ public class Position implements Collidable {
 
     public int getCol() {
         return col;
+    }
+
+    @Override
+    public String toString() {
+        return "Position{" +
+                "row=" + row +
+                ", col=" + col +
+                '}';
     }
 }

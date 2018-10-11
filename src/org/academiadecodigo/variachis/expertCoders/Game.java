@@ -22,53 +22,36 @@ public class Game implements KeyboardHandler {
     private Grid grid;
     private boolean gameOver;
 
-
-    public void addItemsToList() {
+    private void addItemsToList() {
         for (int i = 0; i < 10; i++) {
             allItems.add(ItemFactory.getItem(grid));
         }
-
         for (int i = 0; i < 5; i++) {
             activeItems.add(allItems.remove(i));
         }
     }
 
-
     public void gameInit() {
-        //game knows the grid (instantiate grid) and draw the grid
         this.grid = new Grid(80, 60);
         grid.draw();
         keyboardInit();
-
-        GameLevel levelOne = new GameLevel(PositionFactory.getLevelPosition(grid));
-        levelOne.setGrid(grid);
+        GameLevel levelOne = new GameLevel();
         levelOne.draw();
-
-        //instantiate the player in the grid with a position
         this.player = new Player(PositionFactory.getPlayerPosition(grid));
-
         player.draw();
-
         addItemsToList();
-
-
-
     }
 
-
-    public void itemRecycle(Item item) {
-
+    private void itemRecycle(Item item) {
         allItems.add(item);
-       // activeItems.add(allItems.poll());
     }
-
 
     public void gameStart() {
 
-
         while (!gameOver) {
+
             try {
-                Thread.sleep(100);
+                Thread.sleep(16);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -77,27 +60,22 @@ public class Game implements KeyboardHandler {
                 item.move(Position.Direction.DOWN);
                 item.draw();
 
-
-
                 if (player.checkCollision(item.getPosition())) {
-                    System.out.println("COLIDEDDDDD with player");
                     item.setColided(true);
                     player.beingHit(item);
                 }
 
                 if (grid.checkCollision(item.getPosition())) {
-                    System.out.println("GRIDDD COLIDE CHECKER");
                     item.setColided(true);
-                    //gameOver = true;
+
                 }
 
                 if (item.isColided()) {
-                    System.out.println("TESTESTES");
                     itemRecycle(item);
                     item.recycle();
                 }
 
-                if (player.getKnowledge() <= 0 || player.getFun() <= 0){
+                if (player.getKnowledge() <= 0 || player.getFun() <= 0) { // TODO: 11/10/2018
                     System.out.println("You loose with : " + player.getFun() + " Fun, and with : " + player.getKnowledge() + " Knowlege.");
                     gameOver = true;
 
@@ -109,7 +87,7 @@ public class Game implements KeyboardHandler {
 
     }
 
-    public void keyboardInit(){
+    public void keyboardInit() {
         Keyboard keyboard = new Keyboard(this);
 
         KeyboardEvent moveRight = new KeyboardEvent();
@@ -127,16 +105,17 @@ public class Game implements KeyboardHandler {
 
     @Override
     public void keyPressed(KeyboardEvent keyboardEvent) {
-        switch (keyboardEvent.getKey()){
+        switch (keyboardEvent.getKey()) {
             case KeyboardEvent.KEY_RIGHT:
-                if(player.getPosition().getCol() + grid.PADDING < grid.getCols() * grid.CELLSIZE) {
+                if (player.isLeftOf(grid.getCols())) {
                     player.move(Position.Direction.RIGHT);
-                    player.getPlayerPicture().translate(grid.CELLSIZE, 0);
                 }
                 break;
+
             case KeyboardEvent.KEY_LEFT:
-                player.move(Position.Direction.LEFT);
-                player.getPlayerPicture().translate(- grid.CELLSIZE, 0);
+                if (player.isRightOf(0)) {
+                    player.move(Position.Direction.LEFT);
+                }
                 break;
         }
     }

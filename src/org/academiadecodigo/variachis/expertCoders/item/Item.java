@@ -5,14 +5,11 @@ import org.academiadecodigo.variachis.expertCoders.AbstractCollidable;
 import org.academiadecodigo.variachis.expertCoders.grid.Grid;
 import org.academiadecodigo.variachis.expertCoders.grid.position.Position;
 
-import java.awt.*;
-
 public class Item extends AbstractCollidable {
 
     private Type type;
     private boolean colided = false;
     private Picture picture;
-
 
     public Item(Type type, Position position) {
         super(position);
@@ -20,14 +17,18 @@ public class Item extends AbstractCollidable {
         picture = new Picture(super.getPosition().getCol(), super.getPosition().getRow() + 10, "cap.png");
     }
 
-
-    //Enum type inner class
     public enum Type {
-        CAP,
-        ABSTRACTION,
-        BEER,
-        POLY,
-        TREE;
+        CAP("cap.png"),
+        ABSTRACTION("abstraction.png"),
+        BEER("beer.png"),
+        POLY("polymorphism.png"),
+        TREE("inheritance.png");
+
+        private String pic;
+
+        Type(String pic) {
+            this.pic = pic;
+        }
     }
 
     public void setColided(boolean colided) {
@@ -47,6 +48,8 @@ public class Item extends AbstractCollidable {
     @Override
     public void move(Position.Direction direction) {
         super.move(direction);
+        picture.translate(0, Grid.CELLSIZE); // TODO: 11/10/2018  
+
     }
 
 
@@ -60,79 +63,18 @@ public class Item extends AbstractCollidable {
         this.getPosition().setRowZero();
         this.getPosition().setCol();
         this.picture.delete();
-        this.picture.translate(0, - Grid.rows*Grid.CELLSIZE);
+        this.picture.translate(0, -getPosition().getGridRows() * Grid.CELLSIZE);
         this.setColided(false);
 
     }
 
-
-    //*********************DRAW THE CAP ICON**********************
     @Override
     public void draw() {
-
-        switch (this.type) {
-            case CAP:
-                setCapIcon();
-                break;
-            case ABSTRACTION:
-                setAbstractIcon();
-                break;
-            case BEER:
-                setBeerIcon();
-                break;
-            case TREE:
-                setInheritanceIcon();
-                break;
-            case POLY:
-                setPolyIcon();
-                break;
-        }
-
-    }
-
-
-    //*********************DRAW THE CAP ICON**********************
-
-
-    public void setCapIcon() {
-        picture.load("cap.png");
+        picture.load(type.pic);
         picture.draw();
-        picture.translate(0, Grid.CELLSIZE);
     }
-
-    public void setAbstractIcon() {
-        picture.load("abstraction.png");
-        picture.draw();
-        picture.translate(0, Grid.CELLSIZE);
-    }
-
-    public void setPolyIcon() {
-        picture.load("polymorphism.png");
-        picture.draw();
-        picture.translate(0, Grid.CELLSIZE);
-    }
-
-    public void setInheritanceIcon() {
-        picture.load("inheritance.png");
-        picture.draw();
-        picture.translate(0, Grid.CELLSIZE);
-    }
-
-    public void setBeerIcon() {
-        picture.load("beer.png");
-        picture.draw();
-        picture.translate(0, Grid.CELLSIZE);
-    }
-
-
-    //SETTERS AND GETTER
 
     public Type getType() {
         return type;
-    }
-
-
-    public Picture getPicture() {
-        return picture;
     }
 }
