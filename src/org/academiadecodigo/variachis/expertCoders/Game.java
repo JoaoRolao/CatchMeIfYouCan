@@ -6,14 +6,12 @@ import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
-import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.academiadecodigo.variachis.expertCoders.grid.Grid;
 import org.academiadecodigo.variachis.expertCoders.grid.position.Position;
 import org.academiadecodigo.variachis.expertCoders.grid.position.PositionFactory;
 import org.academiadecodigo.variachis.expertCoders.item.Item;
 import org.academiadecodigo.variachis.expertCoders.item.ItemFactory;
 import org.academiadecodigo.variachis.expertCoders.player.Player;
-import org.academiadecodigo.variachis.expertCoders.player.PlayerKeyboard;
 
 public class Game implements KeyboardHandler {
     private LinkedList<Item> allItems = new LinkedList<>();
@@ -59,8 +57,7 @@ public class Game implements KeyboardHandler {
 
                 item.move(Position.Direction.DOWN);
                 item.draw();
-                System.out.println("player: " + player.getPosition());
-                System.out.println("item: " + item.getPosition());
+
 
                 if (player.checkCollision(item.getPosition())) {
                     System.out.println("yesssss");
@@ -81,6 +78,8 @@ public class Game implements KeyboardHandler {
                 if (player.getKnowledge() <= 0 || player.getFun() <= 0) { // TODO: 11/10/2018
                     System.out.println("You loose with : " + player.getFun() + " Fun, and with : " + player.getKnowledge() + " Knowlege.");
                     levelOne.setActualLevel(GameLevel.Level.TWO);
+                    levelOne.draw();
+                    gameOver = true;
 
 
                 }

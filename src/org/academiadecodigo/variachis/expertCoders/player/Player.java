@@ -67,12 +67,15 @@ public class Player extends AbstractCollidable {
                 switch (random){
                     case 0:
                         playerPicture.load("mestre.png");
+                        playerPicture.draw();
                         break;
                     case 1:
                         playerPicture.load("sid.png");
+                        playerPicture.draw();
                         break;
                     case 2:
                         playerPicture.load("filipe.png");
+                        playerPicture.draw();
                         break;
                     case 3:
                         //playerPicture.load("");

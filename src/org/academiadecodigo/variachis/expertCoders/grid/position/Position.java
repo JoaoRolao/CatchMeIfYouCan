@@ -63,8 +63,60 @@ public class Position {
     }
 
     public boolean equals(Position position) {
-//positions minus five because item collides with grid at row 56
-        return  (this.row == position.row - 5 && this.col == position.col);
+
+        //positions plus five because item collides with grid at row 56/55
+        if(this.row == position.row + 5 && this.col == position.col){
+            return true;
+        }
+        if(this.row == position.row + 5 && this.col == position.col +1){
+            return true;
+        }
+        if(this.row == position.row + 5 && this.col == position.col +2){
+            return true;
+        }
+        if(this.row == position.row + 5 && this.col == position.col + 3){
+            return true;
+        }
+        if(this.row == position.row + 5 && this.col == position.col +4){
+            return true;
+        }
+        if(this.row == position.row + 5 && this.col == position.col +5){
+            return true;
+        }
+        if(this.row == position.row + 5 && this.col == position.col +6){
+            return true;
+        }
+        if(this.row == position.row + 5 && this.col == position.col +7){
+            return true;
+        }
+        if(this.row == position.row + 5 && this.col == position.col +8){
+            return true;
+        }
+        if(this.row == position.row + 5 && this.col == position.col -1){
+            return true;
+        }
+        if(this.row == position.row + 5 && this.col == position.col -2){
+            return true;
+        }
+        if(this.row == position.row + 5 && this.col == position.col -3){
+            return true;
+        }
+        if(this.row == position.row + 5 && this.col == position.col -4){
+            return true;
+        }
+        if(this.row == position.row + 5 && this.col == position.col -5){
+            return true;
+        }
+        if(this.row == position.row + 5 && this.col == position.col -6){
+            return true;
+        }
+        if(this.row == position.row + 5 && this.col == position.col -7){
+            return true;
+        }
+        if(this.row == position.row + 5 && this.col == position.col -8){
+            return true;
+        }
+        return false;
 
     }
 
