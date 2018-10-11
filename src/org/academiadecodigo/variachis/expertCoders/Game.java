@@ -2,7 +2,7 @@ package org.academiadecodigo.variachis.expertCoders;
 
 import java.util.LinkedList;
 
-import org.academiadecodigo.simplegraphics.graphics.Color;
+
 import org.academiadecodigo.simplegraphics.graphics.Text;
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
@@ -32,6 +32,12 @@ public class Game implements KeyboardHandler {
         }
     }
 
+
+    private void itemRecycle(Item item) {
+        allItems.add(item);
+    }
+
+
     public void gameInit() {
         keyboardInit();
         this.grid = new Grid(80, 60);
@@ -44,15 +50,15 @@ public class Game implements KeyboardHandler {
 
     }
 
-    private void itemRecycle(Item item) {
-        allItems.add(item);
-    }
+
 
     public void gameStart() {
 
-        Text knowlege = new Text(11, 10, "Player Knowlege: " + player.getKnowledge());
+        Text knowlege = new Text(12, 12, "Player Knowlege: " + player.getKnowledge());
+        knowlege.grow(2,2);
         knowlege.draw();
-        Text fun = new Text(11, 25, "Player fun: " + player.getFun());
+        Text fun = new Text(12, 28, "Player fun: " + player.getFun());
+        fun.grow(2,2);
         fun.draw();
 
         while (!gameOver) {
@@ -71,7 +77,6 @@ public class Game implements KeyboardHandler {
 
 
                 if (player.checkCollision(item.getPosition())) {
-                    System.out.println("yesssss");
                     item.setColided(true);
                     player.beingHit(item);
                 }
@@ -93,7 +98,6 @@ public class Game implements KeyboardHandler {
             }
 
             if (player.gameOver()) {
-                System.out.println("You loose with : " + player.getFun() + " Fun, and with : " + player.getKnowledge() + " Knowlege.");
                 levelOne.setActualLevel(GameLevel.Level.OVER);
                 levelOne.draw();
                 for (Item item1 : activeItems) {

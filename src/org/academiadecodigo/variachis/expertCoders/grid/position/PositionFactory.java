@@ -2,9 +2,6 @@ package org.academiadecodigo.variachis.expertCoders.grid.position;
 
 import org.academiadecodigo.variachis.expertCoders.grid.Grid;
 
-import java.util.LinkedList;
-import java.util.List;
-
 /**
  * A factory to create different positions for different items.
  */

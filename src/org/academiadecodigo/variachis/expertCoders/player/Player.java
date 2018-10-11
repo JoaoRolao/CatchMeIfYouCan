@@ -22,9 +22,6 @@ public class Player extends AbstractCollidable {
 
     }
 
-    public Picture getPlayerPicture() {
-        return playerPicture;
-    }
 
     @Override
     public boolean checkCollision(Position position) {
@@ -52,6 +49,7 @@ public class Player extends AbstractCollidable {
         return (getKnowledge() <= 0 || getFun() <= 0);
     }
 
+
     public void beingHit(Item item) {
         switch (item.getType()) {
             case CAP:
@@ -70,7 +68,7 @@ public class Player extends AbstractCollidable {
                 int random = ((int) (Math.random() * 4));
                 switch (random){
                     case 0:
-                        playerPicture.load("mestre.png");
+                        playerPicture.load("mestre_shorts.png");
                         playerPicture.draw();
                         break;
                     case 1:
@@ -82,16 +80,19 @@ public class Player extends AbstractCollidable {
                         playerPicture.draw();
                         break;
                     case 3:
-                        //playerPicture.load("");
+                        playerPicture.load("seringas.png");
+                        playerPicture.draw();
                         break;
                 }
                 break;
         }
     }
 
+
     public boolean nextlevel(){
-        return (getFun() == 100 || getKnowledge() == 100);
+        return (getFun() >= 100 || getKnowledge() >= 100);
     }
+
 
     public int getFun() {
         return fun;
@@ -109,6 +110,7 @@ public class Player extends AbstractCollidable {
     public boolean isRightOf(int cols) {
         return getPosition().getCol() > cols;
     }
+
 
     @Override
     public String toString() {

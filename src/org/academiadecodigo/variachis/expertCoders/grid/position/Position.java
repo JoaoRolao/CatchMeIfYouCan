@@ -17,9 +17,6 @@ public class Position {
         this.grid = grid;
     }
 
-    public int getGridRows() {
-        return grid.getRows();
-    }
 
     public enum Direction {
         DOWN,
@@ -32,8 +29,9 @@ public class Position {
     }
 
     public void setCol() {
-        this.col = (int) (Math.random() * grid.getCols());
+        this.col = ((int) (Math.random() * grid.getCols()));
     }
+
 
     public void move(Direction direction) {
         switch (direction) {
@@ -49,6 +47,7 @@ public class Position {
         }
     }
 
+
     private void moveRight() {
         this.col++;
     }
@@ -61,6 +60,8 @@ public class Position {
 
         this.row++;
     }
+
+
 
     public boolean equals(Position position) {
 
@@ -128,6 +129,8 @@ public class Position {
     public int getCol() {
         return col;
     }
+
+
 
     @Override
     public String toString() {

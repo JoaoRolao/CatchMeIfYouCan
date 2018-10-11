@@ -17,6 +17,9 @@ public class Item extends AbstractCollidable {
         picture = new Picture(super.getPosition().getCol(), super.getPosition().getRow() + 10, "cap.png");
     }
 
+    /**
+     * enum type inner class to item class
+     */
     public enum Type {
         CAP("cap.png"),
         ABSTRACTION("abstraction.png"),
@@ -31,9 +34,16 @@ public class Item extends AbstractCollidable {
         }
     }
 
+
+    public Picture getPicture() {
+        return picture;
+    }
+
+
     public void setColided(boolean colided) {
         this.colided = colided;
     }
+
 
     public boolean isColided() {
         return colided;
@@ -65,12 +75,8 @@ public class Item extends AbstractCollidable {
         this.getPosition().setCol();
         this.picture.delete();
         this.setColided(false);
-
     }
 
-    public Picture getPicture() {
-        return picture;
-    }
 
     @Override
     public void draw() {

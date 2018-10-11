@@ -1,7 +1,6 @@
 package org.academiadecodigo.variachis.expertCoders;
 
-import org.academiadecodigo.simplegraphics.pictures.Picture;
-import org.academiadecodigo.variachis.expertCoders.grid.Grid;
+
 import org.academiadecodigo.variachis.expertCoders.grid.position.Position;
 import org.academiadecodigo.variachis.expertCoders.interfaces.Collidable;
 import org.academiadecodigo.variachis.expertCoders.grid.position.Position.Direction;
