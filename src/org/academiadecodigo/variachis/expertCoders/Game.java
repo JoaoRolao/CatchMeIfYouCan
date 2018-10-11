@@ -21,6 +21,7 @@ public class Game implements KeyboardHandler {
     private Player player;
     private Grid grid;
     private boolean gameOver;
+    private GameLevel levelOne = new GameLevel();
 
     private void addItemsToList() {
         for (int i = 0; i < 10; i++) {
@@ -35,7 +36,6 @@ public class Game implements KeyboardHandler {
         this.grid = new Grid(80, 60);
         grid.draw();
         keyboardInit();
-        GameLevel levelOne = new GameLevel();
         levelOne.draw();
         this.player = new Player(PositionFactory.getPlayerPosition(grid));
         player.draw();
@@ -59,8 +59,11 @@ public class Game implements KeyboardHandler {
 
                 item.move(Position.Direction.DOWN);
                 item.draw();
+                System.out.println("player: " + player.getPosition());
+                System.out.println("item: " + item.getPosition());
 
                 if (player.checkCollision(item.getPosition())) {
+                    System.out.println("yesssss");
                     item.setColided(true);
                     player.beingHit(item);
                 }
@@ -77,7 +80,8 @@ public class Game implements KeyboardHandler {
 
                 if (player.getKnowledge() <= 0 || player.getFun() <= 0) { // TODO: 11/10/2018
                     System.out.println("You loose with : " + player.getFun() + " Fun, and with : " + player.getKnowledge() + " Knowlege.");
-                    gameOver = true;
+                    levelOne.setActualLevel(GameLevel.Level.TWO);
+
 
                 }
 
@@ -98,9 +102,19 @@ public class Game implements KeyboardHandler {
         moveLeft.setKey(KeyboardEvent.KEY_LEFT);
         moveLeft.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
 
+        KeyboardEvent changeLevel1 = new KeyboardEvent();
+        changeLevel1.setKey(KeyboardEvent.KEY_1);
+        changeLevel1.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+
+        KeyboardEvent changeLevel2 = new KeyboardEvent();
+        changeLevel2.setKey(KeyboardEvent.KEY_2);
+        changeLevel2.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+
 
         keyboard.addEventListener(moveLeft);
         keyboard.addEventListener(moveRight);
+        keyboard.addEventListener(changeLevel2);
+        keyboard.addEventListener(changeLevel1);
     }
 
     @Override
@@ -116,6 +130,14 @@ public class Game implements KeyboardHandler {
                 if (player.isRightOf(0)) {
                     player.move(Position.Direction.LEFT);
                 }
+                break;
+            case KeyboardEvent.KEY_1:
+                levelOne.setActualLevel(GameLevel.Level.ONE);
+                levelOne.draw();
+                break;
+            case KeyboardEvent.KEY_2:
+                levelOne.setActualLevel(GameLevel.Level.TWO);
+                levelOne.draw();
                 break;
         }
     }

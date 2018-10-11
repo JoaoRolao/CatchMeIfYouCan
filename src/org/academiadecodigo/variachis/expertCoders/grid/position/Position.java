@@ -63,8 +63,9 @@ public class Position {
     }
 
     public boolean equals(Position position) {
+//positions minus five because item collides with grid at row 56
+        return  (this.row == position.row - 5 && this.col == position.col);
 
-        return (this.row == position.row && this.col == position.col);
     }
 
 

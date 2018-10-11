@@ -28,14 +28,14 @@ public class Player extends AbstractCollidable {
 
     @Override
     public boolean checkCollision(Position position) {
-        return super.getPosition().equals(position);
+        return getPosition().equals(position);
     }
 
     @Override
     public void draw() {
         playerPicture.translate(-playerPicture.getWidth(), -playerPicture.getHeight());
         playerPicture.draw();
-        //  playerPicture.grow(-150, -150);
+
     }
 
     @Override
@@ -63,6 +63,21 @@ public class Player extends AbstractCollidable {
                 fun -= 5;
                 break;
             case POLY:
+                int random = ((int) (Math.random() * 4));
+                switch (random){
+                    case 0:
+                        playerPicture.load("mestre.png");
+                        break;
+                    case 1:
+                        playerPicture.load("sid.png");
+                        break;
+                    case 2:
+                        playerPicture.load("filipe.png");
+                        break;
+                    case 3:
+                        //playerPicture.load("");
+                        break;
+                }
                 break;
         }
     }

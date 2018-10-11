@@ -27,7 +27,8 @@ public class GameLevel implements Drawable {
     }
 
     public enum Level {
-        ONE("levelOne.jpg");
+        ONE("levelOne.jpg"),
+        TWO("salinha_screen_2_salinha.jpg");
 
         private String pic;
 
