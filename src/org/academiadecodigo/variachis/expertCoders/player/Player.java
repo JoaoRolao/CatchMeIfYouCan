@@ -8,8 +8,8 @@ import org.academiadecodigo.variachis.expertCoders.item.Item;
 
 public class Player extends AbstractCollidable {
 
-    private int knowledge = 10;
-    private int fun = 10;
+    private int knowledge = 50;
+    private int fun = 50;
     private Picture playerPicture;
     private Position[] positions = new Position[4]; // TODO: 11/10/2018  
 
@@ -42,25 +42,29 @@ public class Player extends AbstractCollidable {
     public void move(Position.Direction direction) {
         super.move(direction);
         int dx = direction == Position.Direction.RIGHT ? 1 : -1;
-        int diff = playerPicture.getX() + dx > Grid.PADDING ? dx : 0; // TODO: 11/10/2018  
+        int diff = playerPicture.getX() + dx > Grid.PADDING ? dx : 0; // TODO: 11/10/2018
 
         playerPicture.translate(diff * Grid.CELLSIZE, 0);
 
     }
 
+    public boolean gameOver(){
+        return (getKnowledge() <= 0 || getFun() <= 0);
+    }
+
     public void beingHit(Item item) {
         switch (item.getType()) {
             case CAP:
-                knowledge -= 5;
+                knowledge -= 20;
                 break;
             case BEER:
-                fun += 5;
+                fun += 20;
                 break;
             case TREE:
-                knowledge += 5;
+                knowledge += 20;
                 break;
             case ABSTRACTION:
-                fun -= 5;
+                fun -= 20;
                 break;
             case POLY:
                 int random = ((int) (Math.random() * 4));
@@ -83,6 +87,10 @@ public class Player extends AbstractCollidable {
                 }
                 break;
         }
+    }
+
+    public boolean nextlevel(){
+        return (getFun() == 100 || getKnowledge() == 100);
     }
 
     public int getFun() {

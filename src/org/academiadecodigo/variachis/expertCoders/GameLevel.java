@@ -2,8 +2,6 @@ package org.academiadecodigo.variachis.expertCoders;
 
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.academiadecodigo.variachis.expertCoders.grid.Grid;
-import org.academiadecodigo.variachis.expertCoders.grid.position.Position;
-import org.academiadecodigo.variachis.expertCoders.interfaces.Collidable;
 import org.academiadecodigo.variachis.expertCoders.interfaces.Drawable;
 
 public class GameLevel implements Drawable {
@@ -27,8 +25,11 @@ public class GameLevel implements Drawable {
     }
 
     public enum Level {
+        ZERO("inicial_screen.jpg"),
         ONE("levelOne.jpg"),
-        TWO("salinha_screen_2_salinha.jpg");
+        TWO("salinha_screen_2_salinha.jpg"),
+        HELP("help.jpg"),
+        OVER("gameover_screen.jpg");
 
         private String pic;
 

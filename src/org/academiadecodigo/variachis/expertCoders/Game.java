@@ -2,6 +2,8 @@ package org.academiadecodigo.variachis.expertCoders;
 
 import java.util.LinkedList;
 
+import org.academiadecodigo.simplegraphics.graphics.Color;
+import org.academiadecodigo.simplegraphics.graphics.Text;
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
@@ -22,22 +24,24 @@ public class Game implements KeyboardHandler {
     private GameLevel levelOne = new GameLevel();
 
     private void addItemsToList() {
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 25; i++) {
             allItems.add(ItemFactory.getItem(grid));
         }
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 7; i++) {
             activeItems.add(allItems.remove(i));
         }
     }
 
     public void gameInit() {
-        this.grid = new Grid(80, 60);
-        grid.draw();
         keyboardInit();
+        this.grid = new Grid(80, 60);
+        levelOne.setActualLevel(GameLevel.Level.ONE);
         levelOne.draw();
         this.player = new Player(PositionFactory.getPlayerPosition(grid));
+        grid.draw();
         player.draw();
         addItemsToList();
+
     }
 
     private void itemRecycle(Item item) {
@@ -46,8 +50,15 @@ public class Game implements KeyboardHandler {
 
     public void gameStart() {
 
+        Text knowlege = new Text(11, 10, "Player Knowlege: " + player.getKnowledge());
+        knowlege.draw();
+        Text fun = new Text(11, 25, "Player fun: " + player.getFun());
+        fun.draw();
+
         while (!gameOver) {
 
+            knowlege.setText("Player Knowlege: " + player.getKnowledge());
+            fun.setText("Player fun : " + player.getFun());
             try {
                 Thread.sleep(16);
             } catch (InterruptedException e) {
@@ -71,18 +82,25 @@ public class Game implements KeyboardHandler {
                 }
 
                 if (item.isColided()) {
-                    itemRecycle(item);
                     item.recycle();
+                    itemRecycle(item);
                 }
+            }
 
-                if (player.getKnowledge() <= 0 || player.getFun() <= 0) { // TODO: 11/10/2018
-                    System.out.println("You loose with : " + player.getFun() + " Fun, and with : " + player.getKnowledge() + " Knowlege.");
-                    levelOne.setActualLevel(GameLevel.Level.TWO);
-                    levelOne.draw();
-                    gameOver = true;
+            if (player.nextlevel()) {
+                levelOne.setActualLevel(GameLevel.Level.TWO);
+                levelOne.draw();
+            }
 
-
+            if (player.gameOver()) {
+                System.out.println("You loose with : " + player.getFun() + " Fun, and with : " + player.getKnowledge() + " Knowlege.");
+                levelOne.setActualLevel(GameLevel.Level.OVER);
+                levelOne.draw();
+                for (Item item1 : activeItems) {
+                    item1.getPicture().delete();
                 }
+                gameOver = true;
+
 
             }
 
@@ -93,49 +111,52 @@ public class Game implements KeyboardHandler {
     public void keyboardInit() {
         Keyboard keyboard = new Keyboard(this);
 
-        KeyboardEvent moveRight = new KeyboardEvent();
-        moveRight.setKey(KeyboardEvent.KEY_RIGHT);
-        moveRight.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        int[] keys = new int[]{
+                KeyboardEvent.KEY_LEFT,
+                KeyboardEvent.KEY_RIGHT,
+                KeyboardEvent.KEY_1,
+                KeyboardEvent.KEY_2,
+                KeyboardEvent.KEY_H,
+                KeyboardEvent.KEY_P
+        };
 
-        KeyboardEvent moveLeft = new KeyboardEvent();
-        moveLeft.setKey(KeyboardEvent.KEY_LEFT);
-        moveLeft.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        for (int key : keys) {
+            KeyboardEvent event = new KeyboardEvent();
+            event.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+            event.setKey(key);
+            keyboard.addEventListener(event);
+        }
 
-        KeyboardEvent changeLevel1 = new KeyboardEvent();
-        changeLevel1.setKey(KeyboardEvent.KEY_1);
-        changeLevel1.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
-
-        KeyboardEvent changeLevel2 = new KeyboardEvent();
-        changeLevel2.setKey(KeyboardEvent.KEY_2);
-        changeLevel2.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
-
-
-        keyboard.addEventListener(moveLeft);
-        keyboard.addEventListener(moveRight);
-        keyboard.addEventListener(changeLevel2);
-        keyboard.addEventListener(changeLevel1);
     }
 
     @Override
     public void keyPressed(KeyboardEvent keyboardEvent) {
         switch (keyboardEvent.getKey()) {
+
             case KeyboardEvent.KEY_RIGHT:
                 if (player.isLeftOf(grid.getCols())) {
                     player.move(Position.Direction.RIGHT);
                 }
                 break;
-
             case KeyboardEvent.KEY_LEFT:
                 if (player.isRightOf(0)) {
                     player.move(Position.Direction.LEFT);
                 }
                 break;
             case KeyboardEvent.KEY_1:
-                levelOne.setActualLevel(GameLevel.Level.ONE);
+                levelOne.setActualLevel(GameLevel.Level.TWO);
                 levelOne.draw();
                 break;
             case KeyboardEvent.KEY_2:
-                levelOne.setActualLevel(GameLevel.Level.TWO);
+                levelOne.setActualLevel(GameLevel.Level.ZERO);
+                levelOne.draw();
+                break;
+            case KeyboardEvent.KEY_P:
+                levelOne.setActualLevel(GameLevel.Level.ONE);
+                levelOne.draw();
+                break;
+            case KeyboardEvent.KEY_H:
+                levelOne.setActualLevel(GameLevel.Level.HELP);
                 levelOne.draw();
                 break;
         }
@@ -145,7 +166,6 @@ public class Game implements KeyboardHandler {
     public void keyReleased(KeyboardEvent keyboardEvent) {
 
     }
-
 }
 
 

@@ -60,12 +60,16 @@ public class Item extends AbstractCollidable {
 
     public void recycle() {
 
+        this.picture.translate(0, -getPosition().getRow() * Grid.CELLSIZE);
         this.getPosition().setRowZero();
         this.getPosition().setCol();
         this.picture.delete();
-        this.picture.translate(0, -getPosition().getGridRows() * Grid.CELLSIZE);
         this.setColided(false);
 
+    }
+
+    public Picture getPicture() {
+        return picture;
     }
 
     @Override
