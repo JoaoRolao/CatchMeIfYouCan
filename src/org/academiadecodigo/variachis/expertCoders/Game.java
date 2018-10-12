@@ -118,6 +118,25 @@ public class Game implements KeyboardHandler {
                 for (Item item1 : activeItems) {
                     item1.getPicture().delete();
                 }
+                Sound sound = new Sound("/resources/DoomOST.wav"); // open stream
+
+                try {
+
+                    sound.play(true); // play sound from start
+                    //Thread.sleep(10000);
+                    //sound.stop(); // pause sound
+                    Thread.sleep(5000);
+                    sound.play(false); // continue playing
+                    Thread.sleep(10000);
+
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+
+                } finally {
+                    sound.close(); // close stream
+                }
+
+                sound.loopIndef(); // play forever
                 gameOver = true;
 
 
