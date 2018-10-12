@@ -4,7 +4,7 @@
 
     <!-- Initialize build properties  -->
     <target name="init" description="Initializes properties">
-        <property name="project.name" value="expertCoders" />
+        <property name="project.name" value="CatchIfYouCan" />
         <property name="src.dir" value="src" />
         <property name="main.class" value="org.academiadecodigo.variachis.expertCoders.Main" />
         <property name="build.dir" value="build" />

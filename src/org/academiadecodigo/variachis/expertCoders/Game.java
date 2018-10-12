@@ -28,17 +28,21 @@ public class Game implements KeyboardHandler {
 
 
     private void addItemsToList() {
+
         for (int i = 0; i < 25; i++) {
             allItems.add(ItemFactory.getItem(grid));
         }
+
         for (int i = 0; i < 7; i++) {
             activeItems.add(allItems.remove(i));
         }
     }
 
+
     public boolean isGameStart() {
         return gameStart;
     }
+
 
     private void itemRecycle(Item item) {
         allItems.add(item);
@@ -60,13 +64,12 @@ public class Game implements KeyboardHandler {
 
     public void gameStart() {
 
-        while (levelOne.getActualLevel() == GameLevel.Level.ZERO) {
-
-            System.out.println("hereeeee");
+        while (levelOne.getActualLevel() == GameLevel.Level.ZERO || levelOne.getActualLevel() == GameLevel.Level.HELP) {
+            System.out.println();
         }
 
 
-        Text knowlege = new Text(12, 12, "Player Knowlege: " + player.getKnowledge());
+        Text knowlege = new Text(12, 12, "Player Knowledge: " + player.getKnowledge());
         knowlege.grow(2, 2);
         knowlege.draw();
         Text fun = new Text(12, 28, "Player fun: " + player.getFun());
@@ -74,8 +77,7 @@ public class Game implements KeyboardHandler {
         fun.draw();
 
         while (!gameOver) {
-            System.out.println("entrei no while caralho");
-            knowlege.setText("Player Knowlege: " + player.getKnowledge());
+            knowlege.setText("Player Knowledge: " + player.getKnowledge());
             fun.setText("Player fun : " + player.getFun());
 
             try {
@@ -194,9 +196,6 @@ public class Game implements KeyboardHandler {
                 levelOne.setActualLevel(GameLevel.Level.ONE);
                 levelOne.draw();
                 gameStart = true;
-
-
-                System.out.println("entrou aqui key_pressed");
                 break;
             case KeyboardEvent.KEY_H:
                 levelOne.setActualLevel(GameLevel.Level.HELP);

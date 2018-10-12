@@ -25,6 +25,7 @@ public class Player extends AbstractCollidable {
 
     @Override
     public boolean checkCollision(Position position) {
+
         return getPosition().equals(position);
     }
 

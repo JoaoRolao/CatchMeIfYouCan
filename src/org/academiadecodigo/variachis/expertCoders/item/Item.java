@@ -7,6 +7,7 @@ import org.academiadecodigo.variachis.expertCoders.grid.position.Position;
 
 public class Item extends AbstractCollidable {
 
+
     private Type type;
     private boolean colided = false;
     private Picture picture;
@@ -71,8 +72,10 @@ public class Item extends AbstractCollidable {
     public void recycle() {
 
         this.picture.translate(0, -getPosition().getRow() * Grid.CELLSIZE);
+
         this.getPosition().setRowZero();
         this.getPosition().setCol();
+
         this.picture.delete();
         this.setColided(false);
     }
