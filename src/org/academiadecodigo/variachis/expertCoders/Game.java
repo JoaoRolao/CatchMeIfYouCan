@@ -16,12 +16,16 @@ import org.academiadecodigo.variachis.expertCoders.item.ItemFactory;
 import org.academiadecodigo.variachis.expertCoders.player.Player;
 
 public class Game implements KeyboardHandler {
+
+
     private LinkedList<Item> allItems = new LinkedList<>();
     private LinkedList<Item> activeItems = new LinkedList<>();
     private Player player;
     private Grid grid;
     private boolean gameOver;
     private GameLevel levelOne = new GameLevel();
+    private boolean gameStart = false;
+
 
     private void addItemsToList() {
         for (int i = 0; i < 25; i++) {
@@ -32,6 +36,9 @@ public class Game implements KeyboardHandler {
         }
     }
 
+    public boolean isGameStart() {
+        return gameStart;
+    }
 
     private void itemRecycle(Item item) {
         allItems.add(item);
@@ -39,37 +46,45 @@ public class Game implements KeyboardHandler {
 
 
     public void gameInit() {
-        keyboardInit();
         this.grid = new Grid(80, 60);
-        levelOne.setActualLevel(GameLevel.Level.ONE);
+        levelOne.setActualLevel(GameLevel.Level.ZERO);
         levelOne.draw();
         this.player = new Player(PositionFactory.getPlayerPosition(grid));
         grid.draw();
         player.draw();
         addItemsToList();
+        keyboardInit();
 
     }
 
 
-
     public void gameStart() {
 
+        while (levelOne.getActualLevel() == GameLevel.Level.ZERO) {
+
+            System.out.println("hereeeee");
+        }
+
+
         Text knowlege = new Text(12, 12, "Player Knowlege: " + player.getKnowledge());
-        knowlege.grow(2,2);
+        knowlege.grow(2, 2);
         knowlege.draw();
         Text fun = new Text(12, 28, "Player fun: " + player.getFun());
-        fun.grow(2,2);
+        fun.grow(2, 2);
         fun.draw();
 
         while (!gameOver) {
-
+            System.out.println("entrei no while caralho");
             knowlege.setText("Player Knowlege: " + player.getKnowledge());
             fun.setText("Player fun : " + player.getFun());
+
             try {
                 Thread.sleep(16);
+
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+
             for (Item item : activeItems) {
 
                 item.move(Position.Direction.DOWN);
@@ -121,7 +136,8 @@ public class Game implements KeyboardHandler {
                 KeyboardEvent.KEY_1,
                 KeyboardEvent.KEY_2,
                 KeyboardEvent.KEY_H,
-                KeyboardEvent.KEY_P
+                KeyboardEvent.KEY_P,
+                KeyboardEvent.KEY_B
         };
 
         for (int key : keys) {
@@ -158,9 +174,17 @@ public class Game implements KeyboardHandler {
             case KeyboardEvent.KEY_P:
                 levelOne.setActualLevel(GameLevel.Level.ONE);
                 levelOne.draw();
+                gameStart = true;
+
+
+                System.out.println("entrou aqui key_pressed");
                 break;
             case KeyboardEvent.KEY_H:
                 levelOne.setActualLevel(GameLevel.Level.HELP);
+                levelOne.draw();
+                break;
+            case KeyboardEvent.KEY_B:
+                levelOne.setActualLevel(GameLevel.Level.ZERO);
                 levelOne.draw();
                 break;
         }

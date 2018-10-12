@@ -10,13 +10,13 @@ public class GameLevel implements Drawable {
     private Picture picture;
 
     public GameLevel() {
-        actualLevel = Level.ONE;
+        actualLevel = Level.ZERO;
         picture = new Picture(Grid.PADDING, Grid.PADDING, actualLevel.pic);
     }
 
     @Override
     public void draw() {
-        picture.load(actualLevel.pic);
+        picture.load(actualLevel.getPic());
         picture.draw();
     }
 
@@ -36,5 +36,13 @@ public class GameLevel implements Drawable {
         Level(String pic) {
             this.pic = pic;
         }
+
+        public String getPic() {
+            return pic;
+        }
+    }
+
+    public Level getActualLevel() {
+        return actualLevel;
     }
 }
