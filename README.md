@@ -30,13 +30,12 @@ Project developed during the 4th week of Academia de Código's 18th bootcamp.
 
 ## Rules && Controles
 
+
  <h4>Controls:</h4>
 <br>
-
 ```python
 <RIGHT> && <LEFT> arrows.
 ```
-
 <br>
  <h4>Rules:</h4>
  
