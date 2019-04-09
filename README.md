@@ -27,9 +27,10 @@ Project developed during the 4th week of Academia de Código's 18th bootcamp.
   <li>Nested Classes</li>
   <li>Simple Graphics Library</li>
 </ul>  
+
 ## Rules && Controles
-<br>
- Controls:
+
+ <h4>Controls:</h4>
 <br>
 
 ```python
@@ -37,7 +38,7 @@ Project developed during the 4th week of Academia de Código's 18th bootcamp.
 ```
 
 <br>
- Rules:
+ <h4>Rules:</h4>
  
  ```
  You need to catch some good JAVA concepts that are represented as an image in the game.
