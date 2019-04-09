@@ -13,21 +13,20 @@ Created by Code Cadets:
   <li>David Afons</li>
 </ul>  
 
-## Concepts
-
+## Concepts Used
 Project developed during the 4th week of Academia de Código's 18th bootcamp.
-<br> Concepts learned until now:
-<br> - Basic Java
-<br> - Java Build Process
-<br> - Basic OOP
-<br> - Composition
-<br> - Inheritance
-<br> - Polymorphism
-<br> - Interfaces
-<br> - Simple Graphics Library
-<br> - Containers
-<br> - Nested Classes
-
+<h4> Concepts learned until now:</h4>
+<ul>
+  <li>Basic Javao</li>
+  <li>Java Build Process</li>
+  <li>Basic OOP</li>
+  <li>Composition</li>
+  <li>Inheritance</li>
+  <li>Polymorphism</li>
+  <li>Containers</li>
+  <li>Nested Classes</li>
+  <li>Simple Graphics Library</li>
+</ul>  
 ## Rules && Controles
 <br>
  Controls:
