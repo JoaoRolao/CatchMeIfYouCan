@@ -12,7 +12,9 @@ Created by Code Cadets:
   <li>Sara Fernandes</li>
   <li>David Afons</li>
 </ul>  
+
 ## Concepts
+
 Project developed during the 4th week of Academia de Código's 18th bootcamp.
 <br> Concepts learned until now:
 <br> - Basic Java
