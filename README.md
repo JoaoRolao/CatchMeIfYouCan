@@ -32,7 +32,7 @@ Project developed during the 4th week of Academia de Código's 18th bootcamp.
 
 
  <h4>Controls:</h4>
-<br>
+ 
 ```python
 <RIGHT> && <LEFT> arrows.
 ```
