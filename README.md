@@ -36,7 +36,6 @@ Project developed during the 4th week of Academia de Código's 18th bootcamp.
 ```python
 <RIGHT> && <LEFT> arrows.
 ```
-<br>
  <h4>Rules:</h4>
  
  ```
