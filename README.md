@@ -36,6 +36,10 @@ Project developed during the 4th week of Academia de Código's 18th bootcamp.
 
 <br>
  Rules:
+ 
+ You need to catch some good JAVA concepts that are represented as an image in the game.
+ In game you can check what are the representations of the concepts and also what are the stats that they give you.
+ If your levels reach a good score you will be moved into next level! 
 
 
 
