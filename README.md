@@ -1,6 +1,8 @@
 
 # Catch If You Can!
 
+some story here
+
 ## Developers
 Developed @ <Academia de Código_> <br>
 Created by Code Cadets:
@@ -23,9 +25,19 @@ Project developed during the 4th week of Academia de Código's 18th bootcamp.
 <br> - Containers
 <br> - Nested Classes
 
-## Rules
+## Rules && Controles
+<br>
+ Controls:
+<br>
 
-(some story here and controll keys)
+```python
+<RIGHT> && <LEFT> arrows.
+```
+
+<br>
+ Rules:
+
+
 
 
 
