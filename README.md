@@ -1,24 +1,24 @@
 Developed @ <Academia de Código_>
 
 Created by Code Cadets
-Tiago Machado
-João Rolão
-Sara Fernandes
-David Afonso
+<br> Tiago Machado
+<br> João Rolão
+<br> Sara Fernandes
+<br> David Afonso
 
 Project developed during the 4th week of Academia de Código's 18th bootcamp.
-Concepts learned until now:
-
+<br> Concepts learned until now:
+<br>
 Basic Java
-Java Build Process
-Basic OOP
-Composition
-Inheritance
-Polymorphism
-Interfaces
-Simple Graphics Library
-Containers
-Nested Classes
+<br> Java Build Process
+<br> Basic OOP
+<br> Composition
+<br> Inheritance
+<br> Polymorphism
+<br> Interfaces
+<br> Simple Graphics Library
+<br> Containers
+<br> Nested Classes
 
 Catch If You Can!
 
